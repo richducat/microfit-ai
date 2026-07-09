@@ -1,0 +1,124 @@
+{
+  "$schemaVersion": 1,
+  "app": {
+    "name": "microfit.AI",
+    "subtitle": "Adaptive fitness, built daily",
+    "bundleId": "com.microfit.app",
+    "sku": "microfit-ai-ios",
+    "platforms": ["iOS", "iPadOS"],
+    "primaryCategory": "Health & Fitness",
+    "secondaryCategory": "Lifestyle",
+    "copyright": "2026 DIGITAL SYNC, LLC, THE",
+    "ageRatingQuestionnaireCompleted": false,
+    "traderStatusReviewed": false,
+    "exportCompliance": {
+      "reviewed": true,
+      "documentationRequired": false,
+      "documentationStatus": "NOT_REQUIRED",
+      "infoPlistKeyConfigured": true
+    }
+  },
+  "version": {
+    "marketingVersion": "2.0",
+    "buildNumber": "2026070901",
+    "releaseType": "MANUAL",
+    "phasedRelease": false,
+    "promotionalText": "Meet the day-aware fitness system: adaptive workouts, three-minute micro-sessions, simple nutrition anchors, and a private on-device coach.",
+    "description": "Build consistency with a fitness plan that responds to the day you actually have.\n\nmicrofit.AI combines readiness, full workouts, micro-sessions, nutrition anchors, habits, and progress in one private, local-first app.\n\nADAPTIVE DAILY PLAN\nCheck in on energy, sleep, soreness, and stress. Microfit scores readiness and recommends the best match from a stable workout library.\n\nCOMPLETE WORKOUT TRACKING\nFollow strength, conditioning, balance, and recovery plans with form cues and substitutions. Log sets, reps, load, rest, duration, and effort.\n\nUSEFUL IN THREE MINUTES\nWhen the full plan does not fit, choose a timed Desk Reset, Energy Boost, or Calm Down session and keep the streak honest.\n\nPRIVATE COACHING\nOn compatible iOS 26 devices, Apple’s Foundation Models generate grounded coaching on device. On every other supported device, a complete offline adaptive coach remains available. No prompt or fitness history is sent to a Microfit server.\n\nFUEL, HABITS, AND PROGRESS\nTrack protein, fiber, plants, and water without calorie accounting. Build daily habits, earn XP and achievements, and review training history, volume, streaks, and next-step insights.\n\nLOCAL-FIRST BY DESIGN\nNo account. No ads. No analytics. No tracking. No subscription. Your profile and fitness history stay on your device and can be deleted in the app at any time.\n\nMicrofit provides general fitness and wellness guidance, not medical diagnosis or treatment.",
+    "keywords": [
+      "workout",
+      "fitness",
+      "trainer",
+      "strength",
+      "exercise",
+      "habit",
+      "nutrition",
+      "readiness",
+      "mobility",
+      "recovery"
+    ],
+    "whatsNew": "microfit.AI 2.0 is a ground-up native rebuild of MicroFit.\n\n• Adaptive readiness and daily plan recommendations\n• Full workout, set, rep, load, rest, and effort tracking\n• Three-to-five-minute timed micro-sessions\n• Private on-device AI coaching on eligible devices, plus an offline coach everywhere else\n• Nutrition anchors, habits, streaks, XP, achievements, and progress insights\n• Local reminders, iPad support, large-text accessibility, and complete local data deletion\n• No account, ads, analytics, tracking, or subscription"
+  },
+  "urls": {
+    "marketingUrl": "https://richducat.github.io/microfit-ai/",
+    "supportUrl": "https://richducat.github.io/microfit-ai/support/",
+    "privacyPolicyUrl": "https://richducat.github.io/microfit-ai/privacy/",
+    "userPrivacyChoicesUrl": "",
+    "termsUrl": "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+  },
+  "review": {
+    "contactName": "Richard Ducat",
+    "contactEmail": "richducat@gmail.com",
+    "contactPhone": "+1-321-587-1163",
+    "demoRequired": false,
+    "demoUsername": "",
+    "demoPassword": "",
+    "notes": [
+      "No login or account is required. Launch the app and complete the five-step local onboarding.",
+      "The core flow is Today check-in → Plan → open a workout → complete sets → Finish & Log.",
+      "Move contains self-contained timed micro-sessions. Fuel, Progress, and Me are available from the bottom navigation.",
+      "On iOS 26 with Apple Intelligence available, Coach uses Apple Foundation Models on device. If unavailable, the app automatically uses its offline adaptive coach.",
+      "The app has no server, ads, analytics, tracking, in-app purchases, or subscriptions. All user-created data is stored locally and can be deleted under Me → Privacy & Data."
+    ]
+  },
+  "distribution": {
+    "usesLogin": false,
+    "supportsIphone": true,
+    "supportsIpad": true,
+    "containsUserGeneratedContent": false,
+    "createsAccounts": false,
+    "requiresExternalHardware": false,
+    "usesPushNotifications": false,
+    "usesLocalNotifications": true
+  },
+  "monetization": {
+    "hasAds": false,
+    "adNetwork": "",
+    "appAdsTxtUrl": "",
+    "hasInAppPurchases": false,
+    "hasSubscriptions": false,
+    "paidAppsAgreementStatus": "NOT_NEEDED",
+    "subscriptionUiIncludesRestore": false,
+    "subscriptionUiIncludesTerms": false,
+    "products": []
+  },
+  "privacy": {
+    "privacyPolicyLinkedInApp": true,
+    "appPrivacyAnswersCurrent": false,
+    "trackingUsed": false,
+    "attFlowImplemented": false,
+    "accountDeletionImplemented": true,
+    "privacyManifestReviewed": true,
+    "requiredReasonApisReviewed": true,
+    "thirdPartySdkPrivacyReviewed": true
+  },
+  "assets": {
+    "appIconSource": "brand/microfit-ai-icon-1024.png",
+    "iphoneScreenshots": [],
+    "ipadScreenshots": [],
+    "appPreviewVideos": []
+  },
+  "verification": {
+    "testedDevices": [
+      "iPhone 17 Pro — iOS 26.5",
+      "iPhone 16 Pro — iOS 18.2",
+      "iPad Air 11-inch (M4) — iPadOS 26.5 portrait and landscape"
+    ],
+    "testedFlows": [
+      "fresh install and five-step onboarding",
+      "readiness score and adaptive recommendation changes",
+      "workout set, rep, load, rest, effort, partial-finish, and history logging",
+      "timed micro-session pause, resume, skip, completion, XP, and habit credit",
+      "Foundation Models coach on iOS 26 and deterministic fallback coach on iOS 18",
+      "nutrition quick log and fine-tune controls",
+      "habit completion, streaks, achievements, progress charts, and insights",
+      "local reminder settings, privacy disclosure, external privacy/support links, and local data deletion confirmation",
+      "VoiceOver labels and accessibility-extra-extra-large Dynamic Type",
+      "iPad portrait and landscape layout"
+    ],
+    "knownRisks": [
+      "Apple Foundation Models availability depends on device, language, region, and Apple Intelligence state; the offline coach is the automatic fallback."
+    ]
+  }
+}
+

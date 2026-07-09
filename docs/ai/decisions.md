@@ -1,0 +1,13 @@
+# Decisions
+
+## 2026-07-09
+
+- Use the existing App Store record rather than create a new app: Apple ID `1341965047`, bundle ID `com.microfit.app`.
+- Ship marketing version `2.0` with build `2026070901` so the update is clearly newer than live version 1.5.
+- Keep the app local-first with no account, remote database, analytics SDK, ads, or subscription in this release.
+- Preserve the original MicroFit promise through timed 1-10 minute movement breaks while expanding into adaptive workouts, nutrition, habits, progress, and coaching.
+- Use Apple's Foundation Models framework for private on-device generative coaching on eligible iOS 26+ devices; use a deterministic context-aware coach everywhere else.
+- Use local notifications only for user-configured movement reminders.
+- Target iPhone and iPad on iOS/iPadOS 18 or later.
+- Do not reuse Lab Studio APIs, commerce, member accounts, copy, contact information, or production assets.
+- Preserve the cloned repository history, but make `ios/MicrofitAI` the only release target.

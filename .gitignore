@@ -1,0 +1,25 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.p8
+*.mobileprovision
+
+# macOS and editors
+.DS_Store
+*.xcuserstate
+xcuserdata/
+
+# Xcode and Swift build artifacts
+build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM
+*.dSYM.zip
+ios/**/.build/
+
+# Local QA artifacts
+output/
+.playwright-cli/
+.playwright-mcp/

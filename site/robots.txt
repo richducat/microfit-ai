@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://richducat.github.io/microfit-ai/sitemap.xml
+
