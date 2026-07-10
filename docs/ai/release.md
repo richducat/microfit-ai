@@ -45,7 +45,8 @@
 - Submit review command: scripts/release/submit_review.sh
 
 ## Status
-- Compliance sign-off: Local manifest/privacy review passed; App Store Connect answers pending
+- Compliance sign-off: Local manifest/privacy review passed; App Store Connect age-rating refresh and App Privacy publication remain
 - QA sign-off: Simulator, unit, accessibility, iPad, website desktop/mobile, and iOS 18/26 coach checks passed
-- Upload status: Not started
-- Review submission status: Not started
+- Archive status: Signed distribution IPA exported and verified as com.microfit.app 2.0 (2026070901); SHA-256 acf8274f4ae11a3c095c33f87328ee48bef350f8bf53bdc1b17111493df1c2a9
+- Upload status: Upload succeeded; App Store Connect processed build 2026070901 to Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
+- Review submission status: Version 2.0 creation staged; metadata, screenshots, compliance answers, build attachment, and submission pending

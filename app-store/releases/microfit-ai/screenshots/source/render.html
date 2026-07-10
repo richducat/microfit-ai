@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>microfit.AI App Store frame</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --lime: #adff00;
+      --aqua: #21dfe3;
+      --gold: #ffc43a;
+      --bg: #050814;
+      --surface: #0d1324;
+      --ink: #f8f9fc;
+      --muted: #aeb9d1;
+      --accent: var(--lime);
+      --accent2: var(--aqua);
+      --device-width: 1040px;
+      --device-top: 600px;
+      --device-radius: 88px;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+    body {
+      position: relative;
+      background:
+        radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--accent2) 18%, transparent), transparent 27%),
+        radial-gradient(circle at 12% 48%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 31%),
+        linear-gradient(150deg, #081020 0%, var(--bg) 52%, #060914 100%);
+      color: var(--ink);
+      font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body[data-device="ipad"] {
+      --device-width: 1600px;
+      --device-top: 575px;
+      --device-radius: 54px;
+    }
+    body[data-frame="2"], body[data-frame="4"] { --accent: var(--aqua); --accent2: var(--lime); }
+    body[data-frame="5"] { --accent: var(--gold); --accent2: var(--lime); }
+    body[data-frame="6"] { --accent: var(--lime); --accent2: #4e8dff; }
+    .grid {
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(174,185,209,.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(174,185,209,.16) 1px, transparent 1px);
+      background-size: 84px 84px;
+      mask-image: linear-gradient(to bottom, #000, transparent 63%);
+    }
+    .brand {
+      position: absolute;
+      z-index: 2;
+      top: 82px;
+      left: 92px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 54px;
+      font-weight: 950;
+      letter-spacing: -.045em;
+    }
+    body[data-device="ipad"] .brand { top: 70px; left: 110px; font-size: 58px; }
+    .brand img { width: 82px; height: 82px; border-radius: 24px; }
+    .brand em { color: var(--accent); font-style: normal; }
+    .copy {
+      position: absolute;
+      z-index: 2;
+      top: 215px;
+      left: 94px;
+      right: 78px;
+    }
+    body[data-device="ipad"] .copy { top: 190px; left: 112px; right: 112px; }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 31px;
+      font-weight: 950;
+      letter-spacing: .18em;
+    }
+    h1 {
+      max-width: 1160px;
+      margin: 0;
+      font-size: 118px;
+      line-height: .94;
+      letter-spacing: -.055em;
+      white-space: pre-line;
+      text-wrap: balance;
+    }
+    body[data-device="ipad"] h1 { max-width: 1780px; font-size: 128px; }
+    .subhead {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 39px;
+      font-weight: 680;
+      letter-spacing: -.015em;
+    }
+    body[data-device="ipad"] .subhead { font-size: 43px; }
+    .device-glow {
+      position: absolute;
+      top: calc(var(--device-top) + 9%);
+      left: 10%;
+      right: 10%;
+      height: 62%;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent2) 22%, transparent), transparent 66%);
+      filter: blur(36px);
+    }
+    .device {
+      position: absolute;
+      z-index: 2;
+      top: var(--device-top);
+      left: 50%;
+      width: var(--device-width);
+      transform: translateX(-50%);
+      border: 10px solid #303c5a;
+      border-radius: var(--device-radius);
+      overflow: hidden;
+      background: #02040b;
+      box-shadow: 0 55px 110px rgba(0,0,0,.52), 0 0 0 14px rgba(4,8,18,.74);
+    }
+    body[data-device="ipad"] .device { border-width: 8px; }
+    .device img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: calc(var(--device-radius) - 12px);
+    }
+    .pulse {
+      position: absolute;
+      z-index: 3;
+      right: 76px;
+      top: 87px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 36px var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="pulse" aria-hidden="true"></div>
+  <div class="brand"><img src="../../../../../brand/microfit-ai-icon-1024.png" alt=""><span>microfit<em>.AI</em></span></div>
+  <div class="copy">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1 id="headline"></h1>
+    <p class="subhead" id="subhead"></p>
+  </div>
+  <div class="device-glow" aria-hidden="true"></div>
+  <div class="device"><img id="screen" alt=""></div>
+
+  <script>
+    const frames = {
+      1: { file: "01-today", eyebrow: "ADAPTIVE DAILY PLAN", headline: "Train for today.", subhead: "Readiness adapts the plan." },
+      2: { file: "02-workout", eyebrow: "COMPLETE WORKOUT LOGGING", headline: "Track every\nhonest set.", subhead: "Reps, load, rest, and effort." },
+      3: { file: "03-move", eyebrow: "MICRO WORKOUTS", headline: "Useful in\nthree minutes.", subhead: "Timed movement when the full plan will not fit." },
+      4: { file: "04-coach", eyebrow: "PRIVATE COACHING", headline: "Guidance that\nstays on device.", subhead: "No prompts or fitness history sent to a Microfit server." },
+      5: { file: "05-fuel", eyebrow: "SIMPLE NUTRITION", headline: "Fuel without\nfood math.", subhead: "Protein, fiber, plants, and water." },
+      6: { file: "06-progress", eyebrow: "USEFUL PROGRESS", headline: "See the work\nadd up.", subhead: "Streaks, volume, history, and next steps." }
+    };
+    const params = new URLSearchParams(location.search);
+    const device = params.get("device") === "ipad" ? "ipad" : "iphone";
+    const frameNumber = Number(params.get("frame") || 1);
+    const frame = frames[frameNumber] || frames[1];
+    const directory = device === "ipad" ? "ipad-13" : "iphone-69";
+
+    document.body.dataset.device = device;
+    document.body.dataset.frame = String(frameNumber);
+    document.getElementById("eyebrow").textContent = frame.eyebrow;
+    document.getElementById("headline").textContent = frame.headline;
+    document.getElementById("subhead").textContent = frame.subhead;
+    const screen = document.getElementById("screen");
+    screen.src = `../raw/${directory}/${frame.file}.png`;
+    screen.addEventListener("load", () => { document.body.dataset.ready = "true"; });
+  </script>
+</body>
+</html>

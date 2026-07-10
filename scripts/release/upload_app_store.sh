@@ -17,7 +17,17 @@ fi
 
 [[ -d "$ARCHIVE_PATH" ]] || { echo "Missing archive. Run scripts/release/build_archive.sh first." >&2; exit 1; }
 
-if command -v asc >/dev/null && asc auth status >/dev/null 2>&1 && [[ -f "$IPA_PATH" ]]; then
+ASC_AUTHENTICATED=false
+if command -v asc >/dev/null && command -v jq >/dev/null; then
+  ASC_STATUS="$(asc auth status 2>/dev/null || true)"
+  if [[ -n "$ASC_STATUS" ]] && jq -e \
+    '(.environmentCredentialsComplete == true) or ((.credentials // []) | length > 0)' \
+    >/dev/null 2>&1 <<<"$ASC_STATUS"; then
+    ASC_AUTHENTICATED=true
+  fi
+fi
+
+if [[ "$ASC_AUTHENTICATED" == true && -f "$IPA_PATH" ]]; then
   asc builds upload --app "$APP_ID" --ipa "$IPA_PATH"
   asc builds wait --app "$APP_ID" --build-number "$BUILD_NUMBER" --timeout 30m
 else
@@ -31,4 +41,3 @@ else
 fi
 
 echo "Upload request completed for build $BUILD_NUMBER."
-

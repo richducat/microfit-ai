@@ -75,8 +75,8 @@ No login is required. The reviewer can complete local onboarding, adjust the Tod
 ## Submission Snapshot
 
 - Release type: Manual release after approval
-- iPhone screenshots attached: Pending final capture
-- iPad screenshots attached: Pending final capture
+- iPhone screenshots prepared: Yes; six validated 1320 x 2868 images, pending live attachment
+- iPad screenshots prepared: Yes; six validated 2048 x 2732 images, pending live attachment
 - Login required: No
 - Subscriptions present: No
 - Ads present: No
@@ -86,11 +86,10 @@ No login is required. The reviewer can complete local onboarding, adjust the Tod
 ## Internal Launch Notes
 
 - Existing listing: https://apps.apple.com/us/app/microfit/id1341965047
-- App Store Connect version state: Pending live inspection
-- Attached build ID or build number: Pending upload
+- App Store Connect version state: Existing 1.5 is Ready for Distribution; version 2.0 creation is staged
+- Attached build ID or build number: 2026070901 is Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
 - Review submission ID: Pending
 - Manual release after approval: Yes
 - Post-approval checks to run:
   - Install from the public App Store on a clean iPhone and confirm version 2.0 / build 2026070901.
   - Verify name, subtitle, screenshots, privacy label, support links, and first-launch onboarding on the public listing.
-

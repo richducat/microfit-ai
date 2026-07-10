@@ -119,6 +119,13 @@ final class MicrofitAppState {
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("--microfit-demo") {
             applyDemoSeed()
+            let arguments = ProcessInfo.processInfo.arguments
+            if arguments.contains("--microfit-plan") { selectedTab = .plan }
+            else if arguments.contains("--microfit-move") { selectedTab = .move }
+            else if arguments.contains("--microfit-coach") { selectedTab = .coach }
+            else if arguments.contains("--microfit-progress") { selectedTab = .progress }
+            else if arguments.contains("--microfit-fuel") { selectedTab = .fuel }
+            else if arguments.contains("--microfit-me") { selectedTab = .profile }
             isBootstrapping = false
             return
         }

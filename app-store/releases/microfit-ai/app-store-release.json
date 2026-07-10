@@ -93,16 +93,32 @@
     "thirdPartySdkPrivacyReviewed": true
   },
   "assets": {
-    "appIconSource": "brand/microfit-ai-icon-1024.png",
-    "iphoneScreenshots": [],
-    "ipadScreenshots": [],
+    "appIconSource": "../../../brand/microfit-ai-icon-1024.png",
+    "iphoneScreenshots": [
+      "screenshots/asc/iphone-69/01.png",
+      "screenshots/asc/iphone-69/02.png",
+      "screenshots/asc/iphone-69/03.png",
+      "screenshots/asc/iphone-69/04.png",
+      "screenshots/asc/iphone-69/05.png",
+      "screenshots/asc/iphone-69/06.png"
+    ],
+    "ipadScreenshots": [
+      "screenshots/asc/ipad-13/01.png",
+      "screenshots/asc/ipad-13/02.png",
+      "screenshots/asc/ipad-13/03.png",
+      "screenshots/asc/ipad-13/04.png",
+      "screenshots/asc/ipad-13/05.png",
+      "screenshots/asc/ipad-13/06.png"
+    ],
     "appPreviewVideos": []
   },
   "verification": {
     "testedDevices": [
       "iPhone 17 Pro — iOS 26.5",
+      "iPhone 17 Pro Max — iOS 26.5",
       "iPhone 16 Pro — iOS 18.2",
-      "iPad Air 11-inch (M4) — iPadOS 26.5 portrait and landscape"
+      "iPad Air 11-inch (M4) — iPadOS 26.5 portrait and landscape",
+      "iPad Air 13-inch (M4) — iPadOS 26.5"
     ],
     "testedFlows": [
       "fresh install and five-step onboarding",
@@ -121,4 +137,3 @@
     ]
   }
 }
-
