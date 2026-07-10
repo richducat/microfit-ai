@@ -45,8 +45,11 @@
 - Submit review command: scripts/release/submit_review.sh
 
 ## Status
-- Compliance sign-off: Local manifest/privacy review passed; App Store Connect age-rating refresh and App Privacy publication remain
+- Compliance sign-off: Complete. App Store Connect shows a completed 9+ age rating, a non-regulated-medical-device declaration, and published Data Not Collected privacy details
 - QA sign-off: Simulator, unit, accessibility, iPad, website desktop/mobile, and iOS 18/26 coach checks passed
 - Archive status: Signed distribution IPA exported and verified as com.microfit.app 2.0 (2026070901); SHA-256 acf8274f4ae11a3c095c33f87328ee48bef350f8bf53bdc1b17111493df1c2a9
 - Upload status: Upload succeeded; App Store Connect processed build 2026070901 to Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
-- Review submission status: Version 2.0 creation staged; metadata, screenshots, compliance answers, build attachment, and submission pending
+- TestFlight status: Build 2026070901 is assigned to the internal App Store Connect Users group; Richard Ducat is invited as the group's tester
+- Screenshot status: Six ordered iPhone 6.9-inch and six ordered iPad 13-inch screenshots are attached in App Store Connect
+- Release configuration: Automatically release immediately to all users after App Review approval; phased release is off
+- Review submission status: Waiting for Review; submission 188ff39a-fe9a-4cc6-8fe5-77532a23bf06 was submitted by Richard Ducat on July 9, 2026 at 11:37 PM EDT

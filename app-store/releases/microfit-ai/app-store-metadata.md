@@ -74,22 +74,26 @@ No login is required. The reviewer can complete local onboarding, adjust the Tod
 
 ## Submission Snapshot
 
-- Release type: Manual release after approval
-- iPhone screenshots prepared: Yes; six validated 1320 x 2868 images, pending live attachment
-- iPad screenshots prepared: Yes; six validated 2048 x 2732 images, pending live attachment
+- Release type: Automatic release immediately after App Review approval
+- iPhone screenshots attached: Yes; six validated 1320 x 2868 images attached to the 6.9-inch set in 01-06 order
+- iPad screenshots attached: Yes; six validated 2048 x 2732 images attached to the 13-inch set in 01-06 order
 - Login required: No
 - Subscriptions present: No
 - Ads present: No
-- App Privacy updated for this build: Pending App Store Connect publication
+- Age rating: 9+; Apple calculated this from the completed questionnaire, including health and wellness topics
+- Regulated medical device declaration: No
+- App Privacy updated for this build: Published; Data Not Collected
 - Export compliance reviewed: Yes; ITSAppUsesNonExemptEncryption is false
 
 ## Internal Launch Notes
 
 - Existing listing: https://apps.apple.com/us/app/microfit/id1341965047
-- App Store Connect version state: Existing 1.5 is Ready for Distribution; version 2.0 creation is staged
+- App Store Connect version state: Existing 1.5 is Ready for Distribution; version 2.0 is Waiting for Review
 - Attached build ID or build number: 2026070901 is Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
-- Review submission ID: Pending
-- Manual release after approval: Yes
+- Internal TestFlight: App Store Connect Users group has one build and Richard Ducat is invited as the internal tester
+- Review submission ID: 188ff39a-fe9a-4cc6-8fe5-77532a23bf06
+- Date submitted: July 9, 2026 at 11:37 PM EDT by Richard Ducat
+- Automatic release after approval: Yes; immediate rollout to all users
 - Post-approval checks to run:
   - Install from the public App Store on a clean iPhone and confirm version 2.0 / build 2026070901.
   - Verify name, subtitle, screenshots, privacy label, support links, and first-launch onboarding on the public listing.

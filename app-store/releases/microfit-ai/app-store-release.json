@@ -9,7 +9,7 @@
     "primaryCategory": "Health & Fitness",
     "secondaryCategory": "Lifestyle",
     "copyright": "2026 DIGITAL SYNC, LLC, THE",
-    "ageRatingQuestionnaireCompleted": false,
+    "ageRatingQuestionnaireCompleted": true,
     "traderStatusReviewed": false,
     "exportCompliance": {
       "reviewed": true,
@@ -21,7 +21,7 @@
   "version": {
     "marketingVersion": "2.0",
     "buildNumber": "2026070901",
-    "releaseType": "MANUAL",
+    "releaseType": "AUTOMATIC",
     "phasedRelease": false,
     "promotionalText": "Meet the day-aware fitness system: adaptive workouts, three-minute micro-sessions, simple nutrition anchors, and a private on-device coach.",
     "description": "Build consistency with a fitness plan that responds to the day you actually have.\n\nmicrofit.AI combines readiness, full workouts, micro-sessions, nutrition anchors, habits, and progress in one private, local-first app.\n\nADAPTIVE DAILY PLAN\nCheck in on energy, sleep, soreness, and stress. Microfit scores readiness and recommends the best match from a stable workout library.\n\nCOMPLETE WORKOUT TRACKING\nFollow strength, conditioning, balance, and recovery plans with form cues and substitutions. Log sets, reps, load, rest, duration, and effort.\n\nUSEFUL IN THREE MINUTES\nWhen the full plan does not fit, choose a timed Desk Reset, Energy Boost, or Calm Down session and keep the streak honest.\n\nPRIVATE COACHING\nOn compatible iOS 26 devices, Apple’s Foundation Models generate grounded coaching on device. On every other supported device, a complete offline adaptive coach remains available. No prompt or fitness history is sent to a Microfit server.\n\nFUEL, HABITS, AND PROGRESS\nTrack protein, fiber, plants, and water without calorie accounting. Build daily habits, earn XP and achievements, and review training history, volume, streaks, and next-step insights.\n\nLOCAL-FIRST BY DESIGN\nNo account. No ads. No analytics. No tracking. No subscription. Your profile and fitness history stay on your device and can be deleted in the app at any time.\n\nMicrofit provides general fitness and wellness guidance, not medical diagnosis or treatment.",
@@ -84,7 +84,7 @@
   },
   "privacy": {
     "privacyPolicyLinkedInApp": true,
-    "appPrivacyAnswersCurrent": false,
+    "appPrivacyAnswersCurrent": true,
     "trackingUsed": false,
     "attFlowImplemented": false,
     "accountDeletionImplemented": true,

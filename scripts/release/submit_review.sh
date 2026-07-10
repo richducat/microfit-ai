@@ -15,10 +15,13 @@ fi
 
 command -v asc >/dev/null || { echo "asc is required for review submission." >&2; exit 1; }
 command -v jq >/dev/null || { echo "jq is required to resolve the build ID." >&2; exit 1; }
-asc auth status >/dev/null 2>&1 || {
+ASC_STATUS="$(asc auth status 2>/dev/null || true)"
+if [[ -z "$ASC_STATUS" ]] || ! jq -e \
+  '(.environmentCredentialsComplete == true) or ((.credentials // []) | length > 0)' \
+  >/dev/null 2>&1 <<<"$ASC_STATUS"; then
   echo "No App Store Connect API credentials are configured. Run 'asc auth login' or use the authenticated App Store Connect web session." >&2
   exit 1
-}
+fi
 
 if [[ -z "$BUILD_ID" ]]; then
   BUILD_JSON="$(asc builds info --app "$APP_ID" --build-number "$BUILD_NUMBER" --output json)"
@@ -40,4 +43,3 @@ asc validate --app "$APP_ID" --version "$VERSION" --platform IOS --strict --outp
 asc review submit --app "$APP_ID" --version "$VERSION" --build "$BUILD_ID" --confirm
 
 echo "Submitted microfit.AI $VERSION build $BUILD_NUMBER for App Review."
-
