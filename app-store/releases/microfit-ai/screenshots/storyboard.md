@@ -31,7 +31,16 @@ Dominant archetype: outcome headline plus oversized real product UI.
 ## Coverage
 
 - iPhone 6.9-inch portrait: 1320 × 2868
+- iPhone 5.5-inch portrait: 1242 × 2208
 - iPad 13-inch portrait: 2048 × 2732
+- iPad Pro 12.9-inch (2nd Gen) portrait: 2048 × 2732
 - Locale: en-US
 - Source UI: current MicrofitAI debug build with the deterministic --microfit-demo seed
 - No external photography, ratings, testimonials, prices, third-party marks, or unshipped features
+
+## Guideline 2.3.3 remediation
+
+Apple rejected version 2.0 on July 11, 2026 because legacy screenshots remained in the
+5.5-inch iPhone and iPad Pro (2nd Gen) slots. The replacement sets in
+`asc/iphone-55/` and `asc/ipad-pro-129-2nd-gen/` use the same current build
+2026070901 UI and frame order as the validated primary sets.

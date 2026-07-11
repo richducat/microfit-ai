@@ -58,6 +58,9 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 
 ## Additional reviewer notes
 
+- Guideline 2.3.3 remediation:
+  - The legacy 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots have been replaced with current microfit.AI 2.0 build 2026070901 UI.
+  - The binary is unchanged; this resubmission corrects only the rejected screenshot metadata.
 - Verified devices:
   - iPhone 17 Pro on iOS 26.5
   - iPhone 16 Pro on iOS 18.2
@@ -67,4 +70,3 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 - Anything Apple should not misinterpret:
   - The product name contains “AI,” but the app does not call an external AI service or collect prompts. “Private on-device AI” is shown only when Apple’s local model is actually available.
   - Microfit provides general fitness and wellness guidance, not diagnosis or treatment.
-

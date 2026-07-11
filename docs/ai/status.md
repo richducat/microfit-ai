@@ -1,10 +1,10 @@
 # Status
 
-Updated: 2026-07-09
+Updated: 2026-07-11
 
 ## Current phase
 
-Release preparation in progress in the independent clone at `/Users/richardducat/GITHUB/microfit-ai`.
+App Review rejection remediation in progress in the independent clone at `/Users/richardducat/GITHUB/microfit-ai`.
 
 ## Completed
 
@@ -22,14 +22,16 @@ Release preparation in progress in the independent clone at `/Users/richardducat
 - Added privacy manifest, in-app privacy/support links, App Store metadata, review notes, and fail-closed release scripts.
 - Passed Swift unit tests and simulator builds; exercised iPhone/iPad, iOS 18/26, portrait/landscape, VoiceOver labels, and large Dynamic Type.
 - Built and browser-tested a static marketing, support, and privacy site with no tracking.
+- Uploaded and processed version 2.0 build 2026070901, assigned it to the internal TestFlight group, and verified Richard Ducat installed it.
+- Submitted App Review submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` on July 9, 2026.
+- Diagnosed Apple's July 11 Guideline 2.3.3 rejection: stale 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots remained in legacy media slots.
+- Produced and validated six current-build replacement screenshots for each rejected legacy slot.
 
 ## In progress
 
-- App Store screenshot capture, signed archive, independent GitHub publication, and App Store Connect staging.
+- Upload the two replacement legacy-size screenshot sets and resubmit the unchanged version 2.0 build 2026070901.
 
 ## Pending
 
-- Publish the independent repository and verify live support/privacy/marketing URLs.
-- Capture and validate 6.9-inch iPhone and 13-inch iPad App Store screenshot sets.
-- Complete App Store Connect privacy, age-rating, trader-status, category, metadata, and review-detail fields.
-- Produce a signed archive, upload build 2026070901, verify processing/TestFlight, and submit version 2.0 for review.
+- Verify the resubmission returns to Waiting for Review or In Review.
+- After approval, verify version 2.0, screenshots, privacy/support links, and automatic release on the public listing.

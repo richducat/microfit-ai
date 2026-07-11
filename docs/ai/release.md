@@ -49,7 +49,7 @@
 - QA sign-off: Simulator, unit, accessibility, iPad, website desktop/mobile, and iOS 18/26 coach checks passed
 - Archive status: Signed distribution IPA exported and verified as com.microfit.app 2.0 (2026070901); SHA-256 acf8274f4ae11a3c095c33f87328ee48bef350f8bf53bdc1b17111493df1c2a9
 - Upload status: Upload succeeded; App Store Connect processed build 2026070901 to Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
-- TestFlight status: Build 2026070901 is assigned to the internal App Store Connect Users group; Richard Ducat is invited as the group's tester
-- Screenshot status: Six ordered iPhone 6.9-inch and six ordered iPad 13-inch screenshots are attached in App Store Connect
+- TestFlight status: Build 2026070901 is assigned to the internal App Store Connect Users group; Richard Ducat installed 2.0 (2026070901) on July 10, 2026
+- Screenshot status: Six ordered iPhone 6.9-inch and six ordered iPad 13-inch screenshots are attached; validated current-version replacement sets are prepared for the rejected 5.5-inch iPhone and iPad Pro (2nd Gen) slots
 - Release configuration: Automatically release immediately to all users after App Review approval; phased release is off
-- Review submission status: Waiting for Review; submission 188ff39a-fe9a-4cc6-8fe5-77532a23bf06 was submitted by Richard Ducat on July 9, 2026 at 11:37 PM EDT
+- Review submission status: Rejected under Guideline 2.3.3 on July 11, 2026 because the legacy 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots did not show the current app; screenshot-only remediation is prepared for submission 188ff39a-fe9a-4cc6-8fe5-77532a23bf06

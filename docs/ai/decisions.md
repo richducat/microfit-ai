@@ -1,5 +1,12 @@
 # Decisions
 
+## 2026-07-11
+
+- Treat the Guideline 2.3.3 rejection as a screenshot-only metadata correction; Apple did not report a binary defect.
+- Keep version 2.0 build 2026070901 attached and replace only the stale 5.5-inch iPhone and iPad Pro (2nd Gen) screenshot sets.
+- Reuse the verified current-build UI and six-frame storyboard so every device-size slot accurately represents microfit.AI 2.0.
+- Do not alter or rebuild the Lab Studio app or checkout as part of this remediation.
+
 ## 2026-07-09
 
 - Use the existing App Store record rather than create a new app: Apple ID `1341965047`, bundle ID `com.microfit.app`.

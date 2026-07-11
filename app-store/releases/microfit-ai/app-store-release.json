@@ -102,6 +102,14 @@
       "screenshots/asc/iphone-69/05.png",
       "screenshots/asc/iphone-69/06.png"
     ],
+    "iphone55Screenshots": [
+      "screenshots/asc/iphone-55/01.png",
+      "screenshots/asc/iphone-55/02.png",
+      "screenshots/asc/iphone-55/03.png",
+      "screenshots/asc/iphone-55/04.png",
+      "screenshots/asc/iphone-55/05.png",
+      "screenshots/asc/iphone-55/06.png"
+    ],
     "ipadScreenshots": [
       "screenshots/asc/ipad-13/01.png",
       "screenshots/asc/ipad-13/02.png",
@@ -109,6 +117,14 @@
       "screenshots/asc/ipad-13/04.png",
       "screenshots/asc/ipad-13/05.png",
       "screenshots/asc/ipad-13/06.png"
+    ],
+    "ipadPro129SecondGenScreenshots": [
+      "screenshots/asc/ipad-pro-129-2nd-gen/01.png",
+      "screenshots/asc/ipad-pro-129-2nd-gen/02.png",
+      "screenshots/asc/ipad-pro-129-2nd-gen/03.png",
+      "screenshots/asc/ipad-pro-129-2nd-gen/04.png",
+      "screenshots/asc/ipad-pro-129-2nd-gen/05.png",
+      "screenshots/asc/ipad-pro-129-2nd-gen/06.png"
     ],
     "appPreviewVideos": []
   },
