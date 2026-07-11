@@ -4,7 +4,7 @@ Updated: 2026-07-11
 
 ## Current phase
 
-App Review rejection remediation in progress in the independent clone at `/Users/richardducat/GITHUB/microfit-ai`.
+App Review monitoring after a corrected resubmission from the independent clone at `/Users/richardducat/GITHUB/microfit-ai`.
 
 ## Completed
 
@@ -26,12 +26,15 @@ App Review rejection remediation in progress in the independent clone at `/Users
 - Submitted App Review submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` on July 9, 2026.
 - Diagnosed Apple's July 11 Guideline 2.3.3 rejection: stale 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots remained in legacy media slots.
 - Produced and validated six current-build replacement screenshots for each rejected legacy slot.
+- Removed the stale legacy screenshots in App Store Connect and configured the 5.5-inch iPhone and iPad Pro (2nd Gen) slots to inherit the current six-frame 6.9-inch iPhone and 13-inch iPad sets.
+- Answered Apple's Guideline 2.1 questions in both the review notes and App Review reply: no data, health data, or personal data is shared with an AI service provider; eligible devices use Apple's on-device Foundation Models and the fallback coach is local.
+- Resubmitted unchanged version 2.0 build 2026070901 under submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` on July 11, 2026 at 10:07 AM EDT and verified the state is Waiting for Review.
+- Reverified the internal App Store Connect Users TestFlight group has one tester and one build; `richducat@gmail.com` has 2.0 (2026070901) installed.
 
 ## In progress
 
-- Upload the two replacement legacy-size screenshot sets and resubmit the unchanged version 2.0 build 2026070901.
+- Monitor submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` while it is Waiting for Review.
 
 ## Pending
 
-- Verify the resubmission returns to Waiting for Review or In Review.
 - After approval, verify version 2.0, screenshots, privacy/support links, and automatic release on the public listing.

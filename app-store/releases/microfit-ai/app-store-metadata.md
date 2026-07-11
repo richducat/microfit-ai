@@ -70,15 +70,15 @@ microfit.AI 2.0 is a ground-up native rebuild of MicroFit.
 
 ## Review Notes
 
-No login is required. The reviewer can complete local onboarding, adjust the Today check-in, open a workout from Plan, complete a set, and log the session. Coach runs through Apple Foundation Models on eligible iOS 26 devices and automatically falls back to a complete offline coach elsewhere.
+No login is required. The reviewer can complete local onboarding, adjust the Today check-in, open a workout from Plan, complete a set, and log the session. Coach runs through Apple Foundation Models on eligible iOS 26 devices and automatically falls back to a complete offline coach elsewhere. No data, health data, or personal data is shared with an AI service provider.
 
 ## Submission Snapshot
 
 - Release type: Automatic release immediately after App Review approval
 - iPhone screenshots attached: Yes; six validated 1320 x 2868 images attached to the 6.9-inch set in 01-06 order
-- iPhone 5.5-inch replacement screenshots: Six validated 1242 x 2208 current-version images prepared in 01-06 order
+- iPhone 5.5-inch screenshots: Uses the current six-frame 6.9-inch iPhone set; six validated 1242 x 2208 legacy-size files remain prepared locally as a fallback
 - iPad screenshots attached: Yes; six validated 2048 x 2732 images attached to the 13-inch set in 01-06 order
-- iPad Pro (2nd Gen) replacement screenshots: Six validated 2048 x 2732 current-version images prepared in 01-06 order
+- iPad Pro (2nd Gen) screenshots: Uses the current six-frame 13-inch iPad set; six validated 2048 x 2732 legacy-size files remain prepared locally as a fallback
 - Login required: No
 - Subscriptions present: No
 - Ads present: No
@@ -90,13 +90,15 @@ No login is required. The reviewer can complete local onboarding, adjust the Tod
 ## Internal Launch Notes
 
 - Existing listing: https://apps.apple.com/us/app/microfit/id1341965047
-- App Store Connect version state: Existing 1.5 is Ready for Distribution; version 2.0 was rejected under Guideline 2.3.3 for stale legacy-size screenshots
-- Attached build ID or build number: 2026070901 is Ready to Submit (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
-- Internal TestFlight: App Store Connect Users group has one build; Richard Ducat installed 2.0 (2026070901) on July 10, 2026
+- App Store Connect version state: Existing 1.5 is Ready for Distribution; version 2.0 build 2026070901 is Waiting for Review after corrected resubmission
+- Attached build ID or build number: 2026070901 remains attached (TestFlight build ID 7b33f506-cb1c-451b-9f63-ad524f7f3c3e)
+- Internal TestFlight: App Store Connect Users group has one tester and one build; Richard Ducat has 2.0 (2026070901) installed, reverified July 11, 2026
 - Review submission ID: 188ff39a-fe9a-4cc6-8fe5-77532a23bf06
 - Date submitted: July 9, 2026 at 11:37 PM EDT by Richard Ducat
 - Rejection received: July 11, 2026 at 2:29 AM EDT; 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots did not show the current app
-- Remediation: Current build 2026070901 screenshot sets prepared for both rejected legacy slots; replacement upload and resubmission pending
+- Additional information requested: Apple asked what data, health data, or personal data is shared with AI service providers
+- Remediation: Deleted both stale legacy-specific screenshot sets; 5.5-inch iPhone now uses the current 6.9-inch set and iPad Pro (2nd Gen) now uses the current 13-inch set. Review notes and the App Review reply state that no data is shared with an AI service provider.
+- Corrected resubmission: July 11, 2026 at 10:07 AM EDT; Waiting for Review under the same submission ID
 - Automatic release after approval: Yes; immediate rollout to all users
 - Post-approval checks to run:
   - Install from the public App Store on a clean iPhone and confirm version 2.0 / build 2026070901.

@@ -53,13 +53,15 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 - No data is collected by the developer or third parties.
 - There are no analytics, ad, attribution, social-login, or third-party AI SDKs.
 - On eligible devices, coaching uses Apple Foundation Models locally. Prompts and fitness history are not sent to a Microfit server.
+- Data shared with AI service providers: None.
+- Health or personal data shared with AI service providers: None.
 - The complete offline coach keeps the feature functional when Apple Foundation Models are unavailable.
 - All local records and pending reminders can be removed with Me → Delete All My Data.
 
 ## Additional reviewer notes
 
 - Guideline 2.3.3 remediation:
-  - The legacy 5.5-inch iPhone and iPad Pro (2nd Gen) screenshots have been replaced with current microfit.AI 2.0 build 2026070901 UI.
+  - The stale legacy-specific screenshot sets were removed in App Store Connect. The 5.5-inch iPhone slot now uses the current 6.9-inch set, and iPad Pro (2nd Gen) now uses the current 13-inch set.
   - The binary is unchanged; this resubmission corrects only the rejected screenshot metadata.
 - Verified devices:
   - iPhone 17 Pro on iOS 26.5

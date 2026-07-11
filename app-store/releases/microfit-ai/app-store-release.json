@@ -58,7 +58,9 @@
       "The core flow is Today check-in → Plan → open a workout → complete sets → Finish & Log.",
       "Move contains self-contained timed micro-sessions. Fuel, Progress, and Me are available from the bottom navigation.",
       "On iOS 26 with Apple Intelligence available, Coach uses Apple Foundation Models on device. If unavailable, the app automatically uses its offline adaptive coach.",
-      "The app has no server, ads, analytics, tracking, in-app purchases, or subscriptions. All user-created data is stored locally and can be deleted under Me → Privacy & Data."
+      "The app has no server, ads, analytics, tracking, in-app purchases, or subscriptions. All user-created data is stored locally and can be deleted under Me → Privacy & Data.",
+      "Data shared with AI service providers: None. Health or personal data shared with AI service providers: None.",
+      "Guideline 2.3.3 remediation: the stale legacy-specific screenshot sets were removed. The 5.5-inch iPhone slot uses the current 6.9-inch set, and iPad Pro (2nd Gen) uses the current 13-inch set."
     ]
   },
   "distribution": {

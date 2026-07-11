@@ -41,6 +41,8 @@ Dominant archetype: outcome headline plus oversized real product UI.
 ## Guideline 2.3.3 remediation
 
 Apple rejected version 2.0 on July 11, 2026 because legacy screenshots remained in the
-5.5-inch iPhone and iPad Pro (2nd Gen) slots. The replacement sets in
-`asc/iphone-55/` and `asc/ipad-pro-129-2nd-gen/` use the same current build
-2026070901 UI and frame order as the validated primary sets.
+5.5-inch iPhone and iPad Pro (2nd Gen) slots. The stale legacy-specific sets were
+deleted in App Store Connect. The 5.5-inch slot now inherits the current 6.9-inch
+iPhone set and iPad Pro (2nd Gen) inherits the current 13-inch iPad set. The local
+fallback assets in `asc/iphone-55/` and `asc/ipad-pro-129-2nd-gen/` use the same
+current build 2026070901 UI and frame order as the validated primary sets.

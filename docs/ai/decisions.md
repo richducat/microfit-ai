@@ -5,6 +5,8 @@
 - Treat the Guideline 2.3.3 rejection as a screenshot-only metadata correction; Apple did not report a binary defect.
 - Keep version 2.0 build 2026070901 attached and replace only the stale 5.5-inch iPhone and iPad Pro (2nd Gen) screenshot sets.
 - Reuse the verified current-build UI and six-frame storyboard so every device-size slot accurately represents microfit.AI 2.0.
+- Use App Store Connect's supported screenshot inheritance after deleting the stale legacy-specific sets: 5.5-inch iPhone uses the current 6.9-inch set and iPad Pro (2nd Gen) uses the current 13-inch set.
+- Answer Apple's Guideline 2.1 questions explicitly in both review notes and the App Review conversation: no data, health data, or personal data is shared with any AI service provider.
 - Do not alter or rebuild the Lab Studio app or checkout as part of this remediation.
 
 ## 2026-07-09
