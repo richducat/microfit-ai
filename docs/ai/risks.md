@@ -2,7 +2,7 @@
 
 ## Open
 
-- The local `asc` CLI has no stored credentials and the App Store Connect browser session has expired. Xcode's signed-in account can upload builds, but confirming processing and internal-group assignment requires a refreshed App Store Connect session unless automatic internal distribution completes it.
+- The local `asc` CLI has no stored credentials and the App Store Connect browser session has expired. This no longer blocks 2.1 TestFlight delivery because Apple confirmed automatic internal distribution, but future App Store Connect metadata or submission work will require refreshed authentication.
 - The trainer directory launches empty until real trainers apply and the owner reviews their credentials; the UI must not imply that fictional or unreviewed trainers are hireable.
 - Email-based application and match requests require the user to send the prepared draft from a mail-capable app; the app needs a share-sheet fallback and must not claim the request was sent merely because a draft opened.
 - Publishing trainer contact information requires explicit applicant consent and a removal path. Only approved fields may be added to the public JSON directory.
@@ -10,6 +10,7 @@
 
 ## Closed
 
+- Version 2.1 TestFlight delivery: closed; Apple confirmed microfit.AI 2.1 (2026071302) is available to the existing tester on iOS 18 or later.
 - Trainer-directory deployment: closed; the owned GitHub Pages trainer, privacy, support, and versioned JSON endpoints are live, and the in-app founding-network state was reverified against the remote directory.
 - Version 2.0 public propagation: closed; the U.S. storefront lookup shows microfit.AI 2.0 with a current release date of July 12, 2026.
 - Guideline 2.3.3 screenshot accuracy: closed in App Store Connect by deleting both stale legacy-specific sets and configuring the legacy slots to inherit the current 6.9-inch iPhone and 13-inch iPad screenshots.

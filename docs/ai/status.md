@@ -40,12 +40,13 @@ Version 2.1 implementation in the independent clone at `/Users/richardducat/GITH
 - Exported a valid App Store distribution IPA for `com.microfit.app` 2.1 (2026071302) with `get-task-allow=false` and uploaded it successfully on July 13, 2026 at 12:05 PM EDT. Apple accepted the package for processing.
 - Published and live-verified the trainer-network page, updated privacy/support pages, and version 1 trainer directory at `https://richducat.github.io/microfit-ai/`; the founding directory intentionally contains zero profiles until real applicants are reviewed.
 - Relaunched the app against the live directory endpoint and verified the Human Trainers surface loads its honest founding-network state without relying on Lab Studio.
+- Confirmed Apple finished processing and distributed version 2.1 build 2026071302 to the existing TestFlight tester. Apple's July 13, 2026 at 12:07 PM EDT notification says the build is ready to install on iOS 18 or later.
 
 ## In progress
 
-- Confirm build 2026071302 finishes Apple processing and is available to the existing internal TestFlight group.
+- None for the version 2.1 internal TestFlight release.
 
 ## Pending
 
-- Refresh the App Store Connect web session if internal-group confirmation is not automatic; the existing browser session expired and the local `asc` CLI has no stored API credentials.
-- Do not submit version 2.1 to App Review until internal TestFlight verification is complete.
+- Install and exercise the TestFlight build on a physical device before any later App Review submission.
+- Version 2.1 has not been submitted to App Review; public version 2.0 remains unchanged.
