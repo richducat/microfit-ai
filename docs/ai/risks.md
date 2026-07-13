@@ -10,6 +10,7 @@
 
 ## Closed
 
+- Trainer-directory deployment: closed; the owned GitHub Pages trainer, privacy, support, and versioned JSON endpoints are live, and the in-app founding-network state was reverified against the remote directory.
 - Version 2.0 public propagation: closed; the U.S. storefront lookup shows microfit.AI 2.0 with a current release date of July 12, 2026.
 - Guideline 2.3.3 screenshot accuracy: closed in App Store Connect by deleting both stale legacy-specific sets and configuring the legacy slots to inherit the current 6.9-inch iPhone and 13-inch iPad screenshots.
 - Guideline 2.1 AI data-sharing information: closed by adding explicit answers to review notes and the App Review reply; no data, health data, or personal data is shared with an AI service provider.

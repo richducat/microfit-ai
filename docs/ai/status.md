@@ -38,10 +38,11 @@ Version 2.1 implementation in the independent clone at `/Users/richardducat/GITH
 - Passed iPhone and iPad simulator validation on iOS/iPadOS 18.2 and iOS 26.5, including VoiceOver labels and accessibility-extra-extra-extra-large Dynamic Type.
 - Passed JSON, plist, sitemap, shell, launch-manifest, and signed-artifact validation for version 2.1 build 2026071302.
 - Exported a valid App Store distribution IPA for `com.microfit.app` 2.1 (2026071302) with `get-task-allow=false` and uploaded it successfully on July 13, 2026 at 12:05 PM EDT. Apple accepted the package for processing.
+- Published and live-verified the trainer-network page, updated privacy/support pages, and version 1 trainer directory at `https://richducat.github.io/microfit-ai/`; the founding directory intentionally contains zero profiles until real applicants are reviewed.
+- Relaunched the app against the live directory endpoint and verified the Human Trainers surface loads its honest founding-network state without relying on Lab Studio.
 
 ## In progress
 
-- Publish the trainer-network page and empty versioned trainer directory from the owned microfit.AI GitHub Pages repository.
 - Confirm build 2026071302 finishes Apple processing and is available to the existing internal TestFlight group.
 
 ## Pending
