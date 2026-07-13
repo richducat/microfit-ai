@@ -1,6 +1,6 @@
 # microfit.AI for iOS
 
-`microfit.AI` is a local-first SwiftUI fitness coach for iPhone and iPad. Version 2.0 replaces the existing MicroFit App Store binary while preserving its original quick-workout promise.
+`microfit.AI` is a local-first SwiftUI fitness coach for iPhone and iPad. Version 2.0 replaced the existing MicroFit App Store binary; version 2.1 adds the founding Human Trainers network while preserving the original quick-workout promise.
 
 ## Product surface
 
@@ -13,9 +13,11 @@
 - local movement reminders
 - private on-device generative coaching on eligible Apple Intelligence devices
 - complete deterministic coaching fallback on every supported device
+- owner-reviewed trainer directory, athlete matching requests, and trainer applications
+- explicit email/share handoff; no match request or application is silently uploaded
 - one-tap deletion of all local data
 
-The app has no account, remote database, analytics SDK, ads, subscription, Lab Studio API dependency, or third-party AI endpoint.
+The app has no account, remote database, analytics SDK, ads, subscription, Lab Studio API dependency, or third-party AI endpoint. The optional Human Trainers screen reads a static public directory from the owned microfit.AI site; core fitness features remain offline-capable.
 
 ## Open and build
 
@@ -39,8 +41,8 @@ xcodebuild -project ios/MicrofitAI/MicrofitAI.xcodeproj \
 
 - App Store Connect Apple ID: `1341965047`
 - Bundle ID: `com.microfit.app`
-- Version: `2.0`
-- Build: `2026070901`
+- Version: `2.1`
+- Build: `2026071302`
 - Apple team: `WN3K69XEP4`
 
 Release metadata and QA evidence live under `app-store/releases/microfit-ai/` and `docs/ai/`.

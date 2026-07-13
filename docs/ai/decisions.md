@@ -1,5 +1,15 @@
 # Decisions
 
+## 2026-07-13
+
+- Add the trainer network as a second mode inside the existing Coach surface rather than crowding the seven-item tab bar.
+- Ship the first trainer-network slice without accounts, embedded payments, or automatically published user content: athletes can request a one-to-one trainer match, and trainers can complete a structured application that opens as a prefilled email they must explicitly send.
+- Publish only owner-reviewed trainer profiles through a versioned JSON directory on the owned microfit.AI GitHub Pages site. The app must handle an empty directory and offline loading honestly; no fictional trainer will be presented as hireable.
+- Keep the athlete's local fitness history private by default. A match request may include only a concise profile summary when the athlete explicitly enables that option before opening the email draft.
+- Do not collect trainer application or athlete inquiry data on a Microfit server in this release. The user's mail client performs the transmission, and the privacy copy must explain the handoff.
+- Do not add payments in this slice. Trainers and athletes may discuss terms directly for one-to-one services after contact; group services, digital products, and in-app purchases remain out of scope.
+- Prepare this work as version 2.1 after confirming version 2.0 is publicly live; do not alter the live 2.0 binary or the Lab Studio app.
+
 ## 2026-07-11
 
 - Treat the Guideline 2.3.3 rejection as a screenshot-only metadata correction; Apple did not report a binary defect.

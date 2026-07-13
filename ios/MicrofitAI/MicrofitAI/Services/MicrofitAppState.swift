@@ -20,6 +20,7 @@ private struct GeneratedCoachReply {
 @Observable
 final class MicrofitAppState {
     var selectedTab: MicrofitTab = .today
+    var coachSection: CoachSection = .aiCoach
     var isBootstrapping = true
     var isWorking = false
     var onboardingComplete = false
@@ -122,6 +123,10 @@ final class MicrofitAppState {
             let arguments = ProcessInfo.processInfo.arguments
             if arguments.contains("--microfit-plan") { selectedTab = .plan }
             else if arguments.contains("--microfit-move") { selectedTab = .move }
+            else if arguments.contains("--microfit-trainers") {
+                coachSection = .humanTrainers
+                selectedTab = .coach
+            }
             else if arguments.contains("--microfit-coach") { selectedTab = .coach }
             else if arguments.contains("--microfit-progress") { selectedTab = .progress }
             else if arguments.contains("--microfit-fuel") { selectedTab = .fuel }
@@ -308,6 +313,7 @@ final class MicrofitAppState {
         defaults.removeObject(forKey: storageKey)
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: (0..<8).map { "microfit-move-\($0)" })
         selectedTab = .today
+        coachSection = .aiCoach
         onboardingComplete = false
         profile = .starter
         checkIns = [:]
@@ -529,6 +535,27 @@ enum MicrofitTab: String, CaseIterable, Identifiable {
         case .progress: "chart.line.uptrend.xyaxis"
         case .fuel: "fork.knife"
         case .profile: "person.fill"
+        }
+    }
+}
+
+enum CoachSection: String, CaseIterable, Identifiable {
+    case aiCoach
+    case humanTrainers
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .aiCoach: "AI Coach"
+        case .humanTrainers: "Human Trainers"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .aiCoach: "apple.intelligence"
+        case .humanTrainers: "person.2.fill"
         }
     }
 }

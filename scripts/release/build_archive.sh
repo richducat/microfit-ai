@@ -7,8 +7,8 @@ SCHEME="MicrofitAI"
 CONFIGURATION="Release"
 TEAM_ID="WN3K69XEP4"
 BUNDLE_ID="com.microfit.app"
-VERSION="2.0"
-BUILD_NUMBER="2026070901"
+VERSION="2.1"
+BUILD_NUMBER="2026071302"
 BUILD_DIR="${MICROFIT_BUILD_DIR:-$ROOT/build}"
 ARCHIVE_PATH="$BUILD_DIR/MicrofitAI.xcarchive"
 EXPORT_DIR="$BUILD_DIR/export"
@@ -16,6 +16,13 @@ EXPORT_OPTIONS="$ROOT/app-store/releases/microfit-ai/ExportOptions.plist"
 
 command -v xcodebuild >/dev/null
 command -v plutil >/dev/null
+
+# Xcode 26.5 can deadlock its build service when the compiler capability probe
+# fills a 16 KB pipe. Removing the verbose macro dump affects only that probe;
+# the actual Swift compilation and link commands remain unchanged.
+if [[ "$(xcodebuild -version | awk 'NR == 1 { print $2 }')" == "26.5" && -z "${CCC_OVERRIDE_OPTIONS:-}" ]]; then
+  export CCC_OVERRIDE_OPTIONS="x-v x-dM"
+fi
 
 mkdir -p "$BUILD_DIR"
 rm -rf "$ARCHIVE_PATH" "$EXPORT_DIR"
@@ -59,4 +66,3 @@ IPA_PATH="$(find "$EXPORT_DIR" -maxdepth 1 -name '*.ipa' -print -quit)"
 echo "Archive: $ARCHIVE_PATH"
 echo "IPA: $IPA_PATH"
 echo "Identity: $ACTUAL_BUNDLE_ID $ACTUAL_VERSION ($ACTUAL_BUILD)"
-

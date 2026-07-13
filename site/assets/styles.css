@@ -43,6 +43,8 @@ h1 { font-size: clamp(4rem, 7.2vw, 7.8rem); }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 14px 19px; border-radius: 14px; font-weight: 900; text-decoration: none; }
 .button-primary { background: var(--lime); color: #050810; box-shadow: 0 18px 50px rgba(173,255,0,.14); }
 .button-primary:hover { background: #c3ff45; transform: translateY(-2px); }
+.button-secondary { border: 1px solid var(--aqua); background: rgba(34,223,227,.08); color: var(--aqua); }
+.button-secondary:hover { background: rgba(34,223,227,.15); transform: translateY(-2px); }
 .text-link { color: var(--text); font-weight: 850; text-underline-offset: 5px; }
 .text-link:hover { color: var(--aqua); }
 .release-note { max-width: 530px; margin-top: 24px; color: #7f8ba7; font-size: .8rem; }
@@ -98,6 +100,11 @@ footer p { margin: 0; }
 .privacy-summary p { max-width: 720px; margin-bottom: 0; color: var(--muted); }
 .contact-band { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 65px 0 0; }
 .contact-band h2 { margin-top: 8px; font-size: clamp(2rem, 4vw, 3.8rem); }
+.action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 56px 0 18px; }
+.action-panel { display: flex; flex-direction: column; align-items: flex-start; min-height: 360px; padding: 30px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, rgba(21,28,48,.96), rgba(13,19,36,.96)); }
+.action-panel h2 { margin: 14px 0 0; font-size: clamp(2rem, 3.2vw, 3.2rem); line-height: 1; }
+.action-panel p:not(.eyebrow) { color: var(--muted); }
+.action-panel .button { margin-top: auto; }
 
 .reveal { opacity: 1; transform: none; }
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
@@ -119,6 +126,7 @@ footer p { margin: 0; }
   .metric-wordwall { grid-column: 1; }
   .private-lock { width: min(82vw, 400px); justify-self: center; }
   .support-section { grid-template-columns: 1fr; gap: 14px; }
+  .action-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {

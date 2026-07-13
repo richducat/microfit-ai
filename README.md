@@ -2,7 +2,7 @@
 
 An independent, native iOS fitness app that replaces the legacy MicroFit App Store build (com.microfit.app, Apple ID 1341965047) without modifying the Lab Studio source repository.
 
-microfit.AI adapts training to daily readiness and keeps a useful fallback available when time or recovery is limited. The app is local-first: no account, backend, ads, analytics, tracking, purchases, or subscription.
+microfit.AI adapts training to daily readiness and keeps a useful fallback available when time or recovery is limited. Core fitness data remains local-first: no account, ads, analytics, tracking, purchases, or subscription. The optional trainer network reads an owner-reviewed public directory and prepares user-controlled email/share handoffs.
 
 ## Product
 
@@ -16,6 +16,8 @@ microfit.AI adapts training to daily readiness and keeps a useful fallback avail
 - Opt-in local movement reminders
 - Apple Foundation Models coaching on eligible iOS 26 devices
 - Complete deterministic offline coach on every supported device
+- Human Trainers mode with a curated directory, athlete match requests, and professional applications
+- Explicit, review-before-send contact handoff with optional local-profile summary sharing off by default
 - In-app privacy disclosure and local data deletion
 
 ## Requirements
@@ -37,7 +39,7 @@ xcodebuild -project ios/MicrofitAI/MicrofitAI.xcodeproj \
 swift test --package-path ios/MicrofitCore
 ~~~
 
-A debug launch with --microfit-demo seeds deterministic, screenshot-ready local data.
+A debug launch with `--microfit-demo` seeds deterministic, screenshot-ready local data. Add `--microfit-trainers` to open the Human Trainers surface.
 
 ## Release
 
@@ -56,4 +58,3 @@ The static site under site/ is deployed through GitHub Pages:
 - Marketing: https://richducat.github.io/microfit-ai/
 - Support: https://richducat.github.io/microfit-ai/support/
 - Privacy: https://richducat.github.io/microfit-ai/privacy/
-

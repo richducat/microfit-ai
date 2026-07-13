@@ -7,12 +7,12 @@ Use this file as the exact reviewer-facing source for the build being submitted.
 - App: microfit.AI
 - Existing Apple ID: 1341965047
 - Bundle ID: com.microfit.app
-- Version: 2.0
-- Build: 2026070901
+- Version: 2.1
+- Build: 2026071302
 
 ## Summary for App Review
 
-microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build. It provides adaptive daily readiness, full workout logging, timed micro-sessions, nutrition anchors, habits, progress, and private coaching. It has no account, backend, ads, analytics, tracking, purchases, or subscriptions; user-created data stays on device.
+microfit.AI 2.1 adds an optional Human Trainers mode to the approved local-first fitness experience. Athletes can read an owner-reviewed public directory and prepare a one-to-one match request. Fitness professionals can prepare a structured application for human review. The app has no account, remote database, ads, analytics, tracking, purchases, or subscriptions; fitness history stays on device.
 
 ## Login
 
@@ -23,11 +23,13 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 
 ## How to test the core flow
 
-1. Launch the app and complete the five short onboarding steps. No account or contact information is requested.
+1. Launch the app and complete the short onboarding. No account or contact information is requested for the core fitness experience.
 2. On Today, change Energy, Sleep, Soreness, or Stress and observe the readiness score and recommended plan update.
 3. Open Plan, choose a workout, complete at least one set, and tap Finish & Log. Move provides a shorter timed-session path.
-4. Open Coach and choose a prompt. Eligible iOS 26 devices use Apple’s on-device Foundation Models; all other supported devices automatically use the offline adaptive coach.
-5. Open Me → Privacy & Data to review local storage details, external policy/support links, and the Delete All My Data control.
+4. Open Coach → AI Coach and choose a prompt. Eligible iOS 26 devices use Apple’s on-device Foundation Models; all other supported devices automatically use the offline adaptive coach.
+5. Open Coach → Human Trainers. The first public directory may be empty while founding applications are reviewed; this is an intentional honest state. Request a Trainer Match or Apply to Join to inspect the structured flows.
+6. The match/application action opens a prepared draft in Mail (or Share). The user must review and send it; the app does not silently transmit the form and does not claim it was sent merely because the draft opened.
+7. Open Me → Privacy & Data to review local storage, the trainer handoff disclosure, policy/support links, and Delete All My Data.
 
 ## Permissions and background behavior
 
@@ -48,10 +50,15 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 - Paywall or purchase screen: Not applicable
 - Restore path: Not applicable
 
-## Privacy and AI
+## Privacy, trainer network, and AI
 
-- No data is collected by the developer or third parties.
+- No personal or fitness data is automatically collected by the developer or third parties.
 - There are no analytics, ad, attribution, social-login, or third-party AI SDKs.
+- Human Trainers fetches a versioned static JSON directory from the owned GitHub Pages site. No fitness history or app user identifier is added to the request.
+- Match requests and applications are created in local view state. They leave the app only when the user explicitly opens and sends the prepared message through another app.
+- A basic profile summary is optional and off by default. Readiness, workout, nutrition, habit, and coach history are never attached.
+- Trainer applications require adult status, accuracy confirmation, and consent before approved public fields may be published. Applications never publish automatically.
+- Athlete match requests require an adult or parent/guardian and consent to follow-up.
 - On eligible devices, coaching uses Apple Foundation Models locally. Prompts and fitness history are not sent to a Microfit server.
 - Data shared with AI service providers: None.
 - Health or personal data shared with AI service providers: None.
@@ -60,9 +67,9 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 
 ## Additional reviewer notes
 
-- Guideline 2.3.3 remediation:
-  - The stale legacy-specific screenshot sets were removed in App Store Connect. The 5.5-inch iPhone slot now uses the current 6.9-inch set, and iPad Pro (2nd Gen) now uses the current 13-inch set.
-  - The binary is unchanged; this resubmission corrects only the rejected screenshot metadata.
+- The trainer directory is curated by the developer. User applications do not become user-generated content in the app until the owner reviews and deliberately publishes an approved profile.
+- No in-app payment is offered. The request starts a conversation for one-to-one fitness training; it does not book, charge, sell group access, or deliver a digital product.
+- A "credentials reviewed" badge means only that the submitted credential reference was checked before publication. The UI explicitly states that it is not a background check, medical referral, or outcome guarantee.
 - Verified devices:
   - iPhone 17 Pro on iOS 26.5
   - iPhone 16 Pro on iOS 18.2
@@ -72,3 +79,4 @@ microfit.AI 2.0 is a ground-up native replacement for the legacy MicroFit build.
 - Anything Apple should not misinterpret:
   - The product name contains “AI,” but the app does not call an external AI service or collect prompts. “Private on-device AI” is shown only when Apple’s local model is actually available.
   - Microfit provides general fitness and wellness guidance, not diagnosis or treatment.
+  - Human Trainers does not require a login and does not reduce access to any previously approved local feature when the directory is offline or empty.

@@ -256,8 +256,19 @@ struct HomeView: View {
                     .font(.subheadline)
                     .foregroundStyle(MicrofitTheme.secondaryText)
                 MicrofitButton(title: "Ask My Coach", icon: "bubble.left.and.bubble.right.fill", tint: MicrofitTheme.lime) {
+                    state.coachSection = .aiCoach
                     state.selectedTab = .coach
                 }
+                Button {
+                    state.coachSection = .humanTrainers
+                    state.selectedTab = .coach
+                } label: {
+                    Label("Find a human trainer", systemImage: "person.2.fill")
+                        .font(.subheadline.weight(.black))
+                        .foregroundStyle(MicrofitTheme.aqua)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.plain)
             }
         }
     }

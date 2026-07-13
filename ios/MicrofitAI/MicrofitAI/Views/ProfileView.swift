@@ -11,6 +11,7 @@ struct ProfileView: View {
             VStack(spacing: 20) {
                 profileHero
                 preferences
+                trainerNetwork
                 reminders
                 privacy
                 about
@@ -138,6 +139,41 @@ struct ProfileView: View {
         }
     }
 
+    private var trainerNetwork: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: "Trainer network", icon: "person.2.fill", trailing: "NEW")
+            PremiumCard(padding: 18) {
+                VStack(alignment: .leading, spacing: 13) {
+                    Text("Get one-to-one help—or bring your coaching business to microfit.AI.")
+                        .font(.subheadline)
+                        .foregroundStyle(MicrofitTheme.secondaryText)
+                    HStack(spacing: 10) {
+                        Button {
+                            state.coachSection = .humanTrainers
+                            state.selectedTab = .coach
+                        } label: {
+                            Label("Find trainer", systemImage: "magnifyingglass")
+                                .frame(maxWidth: .infinity, minHeight: 44)
+                        }
+                        Button {
+                            state.coachSection = .humanTrainers
+                            state.selectedTab = .coach
+                        } label: {
+                            Label("Apply", systemImage: "person.badge.plus")
+                                .frame(maxWidth: .infinity, minHeight: 44)
+                        }
+                    }
+                    .font(.subheadline.weight(.bold))
+                    .buttonStyle(.bordered)
+                    .tint(MicrofitTheme.aqua)
+                    Text("Applications and match requests open as drafts for you to review and send. Microfit does not upload local fitness history automatically.")
+                        .font(.caption)
+                        .foregroundStyle(MicrofitTheme.muted)
+                }
+            }
+        }
+    }
+
     private var privacy: some View {
         VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Privacy & data", icon: "lock.shield.fill", trailing: "LOCAL FIRST")
@@ -176,7 +212,7 @@ struct ProfileView: View {
                 VStack(spacing: 13) {
                     settingRow(icon: "app.fill", title: "App", value: "microfit.AI", tint: MicrofitTheme.lime)
                     Divider().overlay(MicrofitTheme.border)
-                    settingRow(icon: "number", title: "Version", value: "2.0 (2026070901)", tint: MicrofitTheme.aqua)
+                    settingRow(icon: "number", title: "Version", value: versionLabel, tint: MicrofitTheme.aqua)
                     Divider().overlay(MicrofitTheme.border)
                     settingRow(icon: "cpu.fill", title: "Coach", value: state.coachModeLabel, tint: MicrofitTheme.gold)
                 }
@@ -219,6 +255,12 @@ struct ProfileView: View {
 
     private var equipmentLabel: String {
         state.profile.equipment.map(\.title).sorted().joined(separator: ", ")
+    }
+
+    private var versionLabel: String {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "—"
+        return "\(version) (\(build))"
     }
 
     private func hourLabel(_ hour: Int) -> String {
@@ -303,7 +345,12 @@ private struct PrivacyDetailsView: View {
                     privacySection(
                         title: "No Microfit account",
                         icon: "person.crop.circle.badge.xmark",
-                        text: "Microfit does not create an account, upload a fitness profile, maintain a customer database, or require contact information."
+                        text: "Microfit does not create an account or upload your fitness history. Contact details typed into a trainer request or application remain in that draft until you choose to send it through another app."
+                    )
+                    privacySection(
+                        title: "Human trainer handoff",
+                        icon: "person.2.fill",
+                        text: "The trainer screen downloads a public curated directory without attaching your fitness data or a Microfit identifier. Match requests and applications are not sent automatically: Microfit shows a prepared message, and you must choose an app, review it, and send it. Sharing a basic training-preference summary is optional and off by default."
                     )
                     privacySection(
                         title: "Private coaching",

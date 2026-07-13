@@ -3,8 +3,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 APP_ID="1341965047"
-VERSION="2.0"
-BUILD_NUMBER="2026070901"
+VERSION="2.1"
+BUILD_NUMBER="2026071302"
 METADATA_DIR="$ROOT/app-store/releases/microfit-ai/asc-metadata"
 BUILD_ID="${MICROFIT_BUILD_ID:-}"
 

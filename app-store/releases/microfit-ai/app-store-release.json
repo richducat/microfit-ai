@@ -19,12 +19,12 @@
     }
   },
   "version": {
-    "marketingVersion": "2.0",
-    "buildNumber": "2026070901",
+    "marketingVersion": "2.1",
+    "buildNumber": "2026071302",
     "releaseType": "AUTOMATIC",
     "phasedRelease": false,
-    "promotionalText": "Meet the day-aware fitness system: adaptive workouts, three-minute micro-sessions, simple nutrition anchors, and a private on-device coach.",
-    "description": "Build consistency with a fitness plan that responds to the day you actually have.\n\nmicrofit.AI combines readiness, full workouts, micro-sessions, nutrition anchors, habits, and progress in one private, local-first app.\n\nADAPTIVE DAILY PLAN\nCheck in on energy, sleep, soreness, and stress. Microfit scores readiness and recommends the best match from a stable workout library.\n\nCOMPLETE WORKOUT TRACKING\nFollow strength, conditioning, balance, and recovery plans with form cues and substitutions. Log sets, reps, load, rest, duration, and effort.\n\nUSEFUL IN THREE MINUTES\nWhen the full plan does not fit, choose a timed Desk Reset, Energy Boost, or Calm Down session and keep the streak honest.\n\nPRIVATE COACHING\nOn compatible iOS 26 devices, Apple’s Foundation Models generate grounded coaching on device. On every other supported device, a complete offline adaptive coach remains available. No prompt or fitness history is sent to a Microfit server.\n\nFUEL, HABITS, AND PROGRESS\nTrack protein, fiber, plants, and water without calorie accounting. Build daily habits, earn XP and achievements, and review training history, volume, streaks, and next-step insights.\n\nLOCAL-FIRST BY DESIGN\nNo account. No ads. No analytics. No tracking. No subscription. Your profile and fitness history stay on your device and can be deleted in the app at any time.\n\nMicrofit provides general fitness and wellness guidance, not medical diagnosis or treatment.",
+    "promotionalText": "Find your next small win with adaptive training, a private on-device coach, and an optional owner-reviewed human trainer network.",
+    "description": "Build consistency with a fitness plan that responds to the day you actually have.\n\nmicrofit.AI combines readiness, full workouts, micro-sessions, nutrition anchors, habits, progress, private on-device coaching, and an optional human trainer network.\n\nADAPTIVE DAILY PLAN\nCheck in on energy, sleep, soreness, and stress. Microfit scores readiness and recommends the best match from a stable workout library.\n\nCOMPLETE WORKOUT TRACKING\nFollow strength, conditioning, balance, and recovery plans with form cues and substitutions. Log sets, reps, load, rest, duration, and effort.\n\nUSEFUL IN THREE MINUTES\nWhen the full plan does not fit, choose a timed Desk Reset, Energy Boost, or Calm Down session and keep the streak honest.\n\nPRIVATE COACHING\nOn compatible iOS 26 devices, Apple’s Foundation Models generate grounded coaching on device. On every other supported device, a complete offline adaptive coach remains available. No prompt or fitness history is sent to a Microfit server.\n\nHUMAN TRAINERS\nBrowse an owner-reviewed trainer directory, request a one-to-one match, or apply to join the founding network. Requests and applications open as drafts for you to review and send. Your local fitness history is never attached automatically.\n\nFUEL, HABITS, AND PROGRESS\nTrack protein, fiber, plants, and water without calorie accounting. Build daily habits, earn XP and achievements, and review training history, volume, streaks, and next-step insights.\n\nLOCAL-FIRST BY DESIGN\nNo account. No ads. No analytics. No tracking. No subscription. Your profile and fitness history stay on your device and can be deleted in the app at any time.\n\nMicrofit provides general fitness and wellness guidance, not medical diagnosis or treatment.",
     "keywords": [
       "workout",
       "fitness",
@@ -37,7 +37,7 @@
       "mobility",
       "recovery"
     ],
-    "whatsNew": "microfit.AI 2.0 is a ground-up native rebuild of MicroFit.\n\n• Adaptive readiness and daily plan recommendations\n• Full workout, set, rep, load, rest, and effort tracking\n• Three-to-five-minute timed micro-sessions\n• Private on-device AI coaching on eligible devices, plus an offline coach everywhere else\n• Nutrition anchors, habits, streaks, XP, achievements, and progress insights\n• Local reminders, iPad support, large-text accessibility, and complete local data deletion\n• No account, ads, analytics, tracking, or subscription"
+    "whatsNew": "microfit.AI 2.1 adds Human Trainers without giving up the app’s local-first core.\n\n• Browse a curated directory of trainers accepting clients\n• Filter profiles by format and search specialties or location\n• Request a one-to-one match with goal, schedule, format, and budget\n• Optionally share basic training preferences—off by default\n• Apply to join with structured credentials and consent\n• Review every request or application before sending it through an app you choose\n• No account, ads, analytics, tracking, in-app payment, or subscription"
   },
   "urls": {
     "marketingUrl": "https://richducat.github.io/microfit-ai/",
@@ -58,7 +58,8 @@
       "The core flow is Today check-in → Plan → open a workout → complete sets → Finish & Log.",
       "Move contains self-contained timed micro-sessions. Fuel, Progress, and Me are available from the bottom navigation.",
       "On iOS 26 with Apple Intelligence available, Coach uses Apple Foundation Models on device. If unavailable, the app automatically uses its offline adaptive coach.",
-      "The app has no server, ads, analytics, tracking, in-app purchases, or subscriptions. All user-created data is stored locally and can be deleted under Me → Privacy & Data.",
+      "The app has no account, remote database, ads, analytics, tracking, in-app purchases, or subscriptions. Fitness history is stored locally and can be deleted under Me → Privacy & Data.",
+      "Coach → Human Trainers fetches a static curated JSON directory without fitness data or a user identifier. Match requests and applications are sent only through an explicit user-controlled mail/share action.",
       "Data shared with AI service providers: None. Health or personal data shared with AI service providers: None.",
       "Guideline 2.3.3 remediation: the stale legacy-specific screenshot sets were removed. The 5.5-inch iPhone slot uses the current 6.9-inch set, and iPad Pro (2nd Gen) uses the current 13-inch set."
     ]
@@ -133,10 +134,8 @@
   "verification": {
     "testedDevices": [
       "iPhone 17 Pro — iOS 26.5",
-      "iPhone 17 Pro Max — iOS 26.5",
-      "iPhone 16 Pro — iOS 18.2",
-      "iPad Air 11-inch (M4) — iPadOS 26.5 portrait and landscape",
-      "iPad Air 13-inch (M4) — iPadOS 26.5"
+      "iPhone 16 Pro — iOS 18.2, including accessibility-extra-extra-extra-large Dynamic Type",
+      "iPad Air 11-inch (M2) — iPadOS 18.2"
     ],
     "testedFlows": [
       "fresh install and five-step onboarding",
@@ -147,11 +146,13 @@
       "nutrition quick log and fine-tune controls",
       "habit completion, streaks, achievements, progress charts, and insights",
       "local reminder settings, privacy disclosure, external privacy/support links, and local data deletion confirmation",
+      "Human Trainers directory loading, empty/offline states, search and format filtering, profile disclosures, match request, optional profile-summary consent, trainer application validation, mail handoff, and share fallback",
       "VoiceOver labels and accessibility-extra-extra-large Dynamic Type",
-      "iPad portrait and landscape layout"
+      "iPad layout"
     ],
     "knownRisks": [
-      "Apple Foundation Models availability depends on device, language, region, and Apple Intelligence state; the offline coach is the automatic fallback."
+      "Apple Foundation Models availability depends on device, language, region, and Apple Intelligence state; the offline coach is the automatic fallback.",
+      "The founding trainer directory is intentionally empty until real applicants are reviewed; manual match requests remain available."
     ]
   }
 }

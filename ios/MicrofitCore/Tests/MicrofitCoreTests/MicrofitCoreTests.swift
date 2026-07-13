@@ -34,3 +34,40 @@ import Testing
     #expect(NutritionProgress.fraction(value: 150, target: 100) == 1)
     #expect(NutritionProgress.fraction(value: -10, target: 100) == 0)
 }
+
+@Test func trainerLeadEmailValidationRejectsAmbiguousAddresses() {
+    #expect(TrainerLeadRules.isValidEmail("coach@example.com"))
+    #expect(TrainerLeadRules.isValidEmail(" coach@example.com "))
+    #expect(!TrainerLeadRules.isValidEmail("coach example.com"))
+    #expect(!TrainerLeadRules.isValidEmail("coach@localhost"))
+    #expect(!TrainerLeadRules.isValidEmail("@example.com"))
+    #expect(!TrainerLeadRules.isValidEmail("coach@@example.com"))
+}
+
+@Test func trainerMatchingPrefersAvailableFormatAndSpecialty() {
+    let strongMatch = TrainerLeadRules.matchScore(
+        requestedFormat: "virtual",
+        requestedSpecialties: ["strength", "beginnerFitness"],
+        candidateFormats: ["virtual", "hybrid"],
+        candidateSpecialties: ["strength", "beginnerFitness"],
+        acceptsNewClients: true
+    )
+    let partialMatch = TrainerLeadRules.matchScore(
+        requestedFormat: "virtual",
+        requestedSpecialties: ["strength", "beginnerFitness"],
+        candidateFormats: ["inPerson"],
+        candidateSpecialties: ["strength"],
+        acceptsNewClients: true
+    )
+    let unavailable = TrainerLeadRules.matchScore(
+        requestedFormat: "virtual",
+        requestedSpecialties: ["strength"],
+        candidateFormats: ["virtual"],
+        candidateSpecialties: ["strength"],
+        acceptsNewClients: false
+    )
+
+    #expect(strongMatch == 80)
+    #expect(partialMatch == 20)
+    #expect(unavailable == Int.min)
+}

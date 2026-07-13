@@ -63,3 +63,27 @@ public enum NutritionProgress {
         return min(1, max(0, Double(value) / Double(target)))
     }
 }
+
+public enum TrainerLeadRules {
+    public static func isValidEmail(_ value: String) -> Bool {
+        let cleaned = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleaned.contains(" "), cleaned.count <= 254 else { return false }
+        let parts = cleaned.split(separator: "@", omittingEmptySubsequences: false)
+        guard parts.count == 2, !parts[0].isEmpty else { return false }
+        let domain = String(parts[1])
+        return domain.contains(".") && !domain.hasPrefix(".") && !domain.hasSuffix(".")
+    }
+
+    public static func matchScore(
+        requestedFormat: String,
+        requestedSpecialties: Set<String>,
+        candidateFormats: Set<String>,
+        candidateSpecialties: Set<String>,
+        acceptsNewClients: Bool
+    ) -> Int {
+        guard acceptsNewClients else { return Int.min }
+        var score = candidateFormats.contains(requestedFormat) ? 40 : 0
+        score += requestedSpecialties.intersection(candidateSpecialties).count * 20
+        return score
+    }
+}

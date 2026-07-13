@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CoachView: View {
     @Environment(MicrofitAppState.self) private var state
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var input = ""
 
     private let quickPrompts = [
@@ -13,12 +14,56 @@ struct CoachView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            coachSwitcher
+            switch state.coachSection {
+            case .aiCoach:
+                aiCoach
+            case .humanTrainers:
+                TrainerMarketplaceView()
+            }
+        }
+        .frame(maxWidth: 760)
+        .frame(maxWidth: .infinity)
+    }
+
+    private var coachSwitcher: some View {
+        let layout = dynamicTypeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(spacing: 8))
+            : AnyLayout(HStackLayout(spacing: 8))
+
+        return layout {
+            ForEach(CoachSection.allCases) { section in
+                let selected = state.coachSection == section
+                Button {
+                    withAnimation(.snappy(duration: 0.25)) { state.coachSection = section }
+                } label: {
+                    Label(section.title, systemImage: section.icon)
+                        .font(.subheadline.weight(.black))
+                        .foregroundStyle(selected ? MicrofitTheme.background : MicrofitTheme.secondaryText)
+                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                        .minimumScaleFactor(0.78)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .frame(minHeight: 44)
+                        .padding(.vertical, dynamicTypeSize.isAccessibilitySize ? 8 : 0)
+                        .background(selected ? MicrofitTheme.lime : MicrofitTheme.elevated, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(selected ? .isSelected : [])
+            }
+        }
+        .padding(.horizontal, 18)
+        .padding(.vertical, 10)
+        .background(MicrofitTheme.chrome.opacity(0.96))
+        .overlay(alignment: .bottom) { Rectangle().fill(MicrofitTheme.border).frame(height: 1) }
+    }
+
+    private var aiCoach: some View {
+        VStack(spacing: 0) {
             coachHeader
             messages
             composer
         }
-        .frame(maxWidth: 760)
-        .frame(maxWidth: .infinity)
     }
 
     private var coachHeader: some View {

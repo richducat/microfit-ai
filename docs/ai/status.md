@@ -1,10 +1,10 @@
 # Status
 
-Updated: 2026-07-11
+Updated: 2026-07-13
 
 ## Current phase
 
-App Review monitoring after a corrected resubmission from the independent clone at `/Users/richardducat/GITHUB/microfit-ai`.
+Version 2.1 implementation in the independent clone at `/Users/richardducat/GITHUB/microfit-ai`: add athlete-to-trainer matching and a trainer application path without changing Lab Studio.
 
 ## Completed
 
@@ -30,11 +30,21 @@ App Review monitoring after a corrected resubmission from the independent clone 
 - Answered Apple's Guideline 2.1 questions in both the review notes and App Review reply: no data, health data, or personal data is shared with an AI service provider; eligible devices use Apple's on-device Foundation Models and the fallback coach is local.
 - Resubmitted unchanged version 2.0 build 2026070901 under submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` on July 11, 2026 at 10:07 AM EDT and verified the state is Waiting for Review.
 - Reverified the internal App Store Connect Users TestFlight group has one tester and one build; `richducat@gmail.com` has 2.0 (2026070901) installed.
+- Verified the public App Store listing propagated as microfit.AI 2.0 on July 12, 2026, with the new icon, current description and release notes, iOS 18 minimum, and owned marketing URL.
+- Reverified the owned marketing, support, and privacy URLs return HTTP 200.
+- Implemented Human Trainers inside Coach with an owner-reviewed remote directory, honest empty/offline states, athlete search and filters, trainer profiles, a structured trainer-match request, and a structured trainer application.
+- Kept all trainer and athlete contact transmission user-controlled through a review-before-send mail/share handoff; optional local profile-summary sharing is off by default.
+- Added trainer application validation, matching logic, and email validation coverage to MicrofitCore; all seven unit tests pass.
+- Passed iPhone and iPad simulator validation on iOS/iPadOS 18.2 and iOS 26.5, including VoiceOver labels and accessibility-extra-extra-extra-large Dynamic Type.
+- Passed JSON, plist, sitemap, shell, launch-manifest, and signed-artifact validation for version 2.1 build 2026071302.
+- Exported a valid App Store distribution IPA for `com.microfit.app` 2.1 (2026071302) with `get-task-allow=false` and uploaded it successfully on July 13, 2026 at 12:05 PM EDT. Apple accepted the package for processing.
 
 ## In progress
 
-- Monitor submission `188ff39a-fe9a-4cc6-8fe5-77532a23bf06` while it is Waiting for Review.
+- Publish the trainer-network page and empty versioned trainer directory from the owned microfit.AI GitHub Pages repository.
+- Confirm build 2026071302 finishes Apple processing and is available to the existing internal TestFlight group.
 
 ## Pending
 
-- After approval, verify version 2.0, screenshots, privacy/support links, and automatic release on the public listing.
+- Refresh the App Store Connect web session if internal-group confirmation is not automatic; the existing browser session expired and the local `asc` CLI has no stored API credentials.
+- Do not submit version 2.1 to App Review until internal TestFlight verification is complete.
