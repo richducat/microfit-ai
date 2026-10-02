@@ -71,8 +71,8 @@ microfit.AI 2.1 fixes a local-data deletion race with pending coaching and remin
 - No in-app payment is offered. The request starts a conversation for one-to-one fitness training; it does not book, charge, sell group access, or deliver a digital product.
 - A "credentials reviewed" badge means only that the submitted credential reference was checked before publication. The UI explicitly states that it is not a background check, medical referral, or outcome guarantee.
 - Current corrected-build verification:
-  - Five deterministic tests exercise pending coaching, notification authorization, notification scheduling, newer reminder configuration, and deletion after restart against actual app state source.
-  - iPhone and iPad simulator release QA is recorded in the release evidence before submission.
+  - Six deterministic tests exercise pending coaching, notification authorization, notification scheduling, newer reminder configuration, deletion after restart, and cleanup after a partial scheduling failure against actual app state source.
+  - iPhone 18 Pro and iPad Pro 13-inch (M5) simulators on iOS 27 passed onboarding, navigation, workout completion, coaching-history persistence, trainer email validation, and deletion/relaunch QA.
   - Physical-device and TestFlight runtime verification is not yet established for this corrected build.
 - Known non-blocking limits:
   - Apple Foundation Models availability varies by compatible hardware, language, region, and Apple Intelligence state. The offline coach is automatic and requires no setup.

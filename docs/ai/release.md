@@ -68,3 +68,5 @@ Deletion repair verified October2: five deterministic XCTest races pass on macOS
 - Remaining gates: personally inspect complete iPhone and iPad flows, verify signed archive identity, upload and confirm processing, then stage current metadata and submit.
 
 October 2 notification failure follow-up: iPad Pro 13-inch M5/iOS27 extended UI test passed with no XCTest runtime warnings. Screens showed simulator notification scheduling rejection; actual partial scheduling cleanup was missing. A sixth regression reproduced leftover reminder and stored IDs, then passed after cleanup was added. All six regression tests pass. Phone/tablet UI results precede this narrowly scoped error-path patch; successful real notification delivery remains unverified. Signed archive next.
+
+October 2 signed archive: API-authenticated Xcode archive succeeded for com.microfit.app 2.1 build 2026100201 at source 10e676a. Distribution export running; upload and review submission not performed. No compiler errors; only the App Intents metadata-skipped warning because the app has no AppIntents dependency.
