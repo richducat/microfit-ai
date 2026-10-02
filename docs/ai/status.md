@@ -58,3 +58,5 @@ Deletion repair verified October2: five deterministic XCTest races pass on macOS
 
 ## October 2 release preparation
 Preparing corrected 2.1 build 2026100201. Deletion patch merged; five regression tests passed. Extended iPhone and iPad QA, signed archive, upload and review submission remain.
+
+October 2 iPhone extended QA: one XCUITest passed, zero failures, no runtime warnings; tested onboarding, tabs, workout completion, coaching reply/history relaunch, invalid trainer email and local deletion/relaunch. Root personally inspected three affected screens. Generated QA app uses actual repaired source; this is not physical TestFlight proof. iPad build 2026100201 QA is running. Distribution signing identity exists.
