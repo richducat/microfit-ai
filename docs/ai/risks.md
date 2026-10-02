@@ -23,3 +23,8 @@
 - Distribution signing: closed; the signed App Store IPA was exported, uploaded, processed, and attached successfully.
 - Risk of modifying Lab Studio: closed by separate clone, native-only delta import, and removal of the clone remote.
 - Risk of depending on Lab Studio production: product architecture decision removes all Lab API/auth/commerce dependencies.
+
+## October 2 deletion-race repair
+Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
+
+Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.

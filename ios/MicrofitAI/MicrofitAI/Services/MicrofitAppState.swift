@@ -2,6 +2,26 @@ import Foundation
 import Observation
 import UserNotifications
 
+@MainActor
+protocol MicrofitReminderCenter {
+    func requestAuthorization(options: UNAuthorizationOptions) async throws -> Bool
+    func add(_ request: UNNotificationRequest) async throws
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String])
+}
+
+@MainActor
+private struct SystemMicrofitReminderCenter: MicrofitReminderCenter {
+    func requestAuthorization(options: UNAuthorizationOptions) async throws -> Bool {
+        try await UNUserNotificationCenter.current().requestAuthorization(options: options)
+    }
+    func add(_ request: UNNotificationRequest) async throws {
+        try await UNUserNotificationCenter.current().add(request)
+    }
+    func removePendingNotificationRequests(withIdentifiers identifiers: [String]) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+}
+
 #if canImport(FoundationModels)
 import FoundationModels
 
@@ -41,10 +61,21 @@ final class MicrofitAppState {
     var successMessage: String?
 
     private let defaults: UserDefaults
+    private let reminderCenter: any MicrofitReminderCenter
+    private let coachReplyProvider: (@MainActor (String) async throws -> String)?
     private let storageKey = "microfit.snapshot.v2"
+    private let reminderIdentifierKey = "microfit.reminderIdentifiers"
+    private var dataRevision = UUID()
+    private var reminderRevision = UUID()
+    private var scheduledReminderIdentifiers: Set<String> = []
 
-    init(defaults: UserDefaults = .standard) {
+    init(defaults: UserDefaults = .standard,
+         reminderCenter: (any MicrofitReminderCenter)? = nil,
+         coachReplyProvider: (@MainActor (String) async throws -> String)? = nil) {
         self.defaults = defaults
+        self.reminderCenter = reminderCenter ?? SystemMicrofitReminderCenter()
+        self.coachReplyProvider = coachReplyProvider
+        scheduledReminderIdentifiers = Set(defaults.stringArray(forKey: reminderIdentifierKey) ?? [])
     }
 
     var todayCheckIn: DailyCheckIn {
@@ -235,11 +266,14 @@ final class MicrofitAppState {
         let cleaned = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleaned.isEmpty, !isWorking else { return }
 
+        let revision = dataRevision
         coachMessages.append(.init(text: cleaned, isCoach: false))
         isWorking = true
         defer {
-            isWorking = false
-            saveSnapshot()
+            if revision == dataRevision {
+                isWorking = false
+                saveSnapshot()
+            }
         }
 
         let context = coachContext(for: cleaned)
@@ -249,10 +283,22 @@ final class MicrofitAppState {
             return
         }
 
+        if let coachReplyProvider {
+            do {
+                let reply = try await coachReplyProvider(context)
+                guard revision == dataRevision else { return }
+                coachMessages.append(.init(text: reply, isCoach: true))
+                return
+            } catch {
+                // Use the same local fallback as a failed on-device response.
+            }
+        }
+
         #if canImport(FoundationModels)
         if #available(iOS 26.0, *), SystemLanguageModel.default.isAvailable {
             do {
                 let reply = try await onDeviceReply(prompt: context)
+                guard revision == dataRevision else { return }
                 coachMessages.append(.init(text: reply, isCoach: true))
                 return
             } catch {
@@ -261,17 +307,22 @@ final class MicrofitAppState {
         }
         #endif
 
+        guard revision == dataRevision else { return }
         coachMessages.append(.init(text: fallbackCoachReply(to: cleaned), isCoach: true))
     }
 
     func configureReminders(enabled: Bool, hours: [Int]? = nil) async {
+        let revision = UUID()
+        reminderRevision = revision
         if let hours {
             reminderHours = Array(Set(hours.map { max(6, min(21, $0)) })).sorted()
         }
 
-        let center = UNUserNotificationCenter.current()
+        let center = reminderCenter
         let identifiers = (0..<8).map { "microfit-move-\($0)" }
-        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+        center.removePendingNotificationRequests(withIdentifiers: identifiers + Array(scheduledReminderIdentifiers))
+        scheduledReminderIdentifiers.removeAll()
+        defaults.removeObject(forKey: reminderIdentifierKey)
 
         guard enabled else {
             remindersEnabled = false
@@ -281,6 +332,7 @@ final class MicrofitAppState {
 
         do {
             let granted = try await center.requestAuthorization(options: [.alert, .sound])
+            guard revision == reminderRevision else { return }
             guard granted else {
                 remindersEnabled = false
                 errorMessage = "Movement reminders are off. You can enable notifications in Settings."
@@ -296,13 +348,21 @@ final class MicrofitAppState {
                     : "Three minutes now can change how the rest of your day feels."
                 content.sound = .default
                 let trigger = UNCalendarNotificationTrigger(dateMatching: DateComponents(hour: hour), repeats: true)
-                let request = UNNotificationRequest(identifier: "microfit-move-\(index)", content: content, trigger: trigger)
+                let identifier = "microfit-move-\(revision.uuidString)-\(index)"
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                scheduledReminderIdentifiers.insert(identifier)
+                defaults.set(Array(scheduledReminderIdentifiers), forKey: reminderIdentifierKey)
                 try await center.add(request)
+                guard revision == reminderRevision else {
+                    center.removePendingNotificationRequests(withIdentifiers: [identifier])
+                    return
+                }
             }
 
             remindersEnabled = true
             successMessage = "Movement reminders scheduled."
         } catch {
+            guard revision == reminderRevision else { return }
             remindersEnabled = false
             errorMessage = "Microfit couldn’t schedule reminders: \(error.localizedDescription)"
         }
@@ -310,8 +370,13 @@ final class MicrofitAppState {
     }
 
     func deleteAllData() async {
+        dataRevision = UUID()
+        reminderRevision = UUID()
+        isWorking = false
         defaults.removeObject(forKey: storageKey)
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: (0..<8).map { "microfit-move-\($0)" })
+        reminderCenter.removePendingNotificationRequests(withIdentifiers: (0..<8).map { "microfit-move-\($0)" } + Array(scheduledReminderIdentifiers))
+        scheduledReminderIdentifiers.removeAll()
+        defaults.removeObject(forKey: reminderIdentifierKey)
         selectedTab = .today
         coachSection = .aiCoach
         onboardingComplete = false

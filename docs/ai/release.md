@@ -54,3 +54,8 @@
 - Screenshot status: Six ordered iPhone 6.9-inch and six ordered iPad 13-inch screenshots are attached; the stale legacy-specific sets were deleted, the 5.5-inch iPhone slot now uses the 6.9-inch set, and iPad Pro (2nd Gen) now uses the 13-inch set
 - Release configuration: Automatically release immediately to all users after App Review approval; phased release is off
 - Review submission status: Version 2.0 is approved and publicly live. Version 2.1 is internal-TestFlight only and has not been submitted for App Review.
+
+## October 2 deletion-race repair
+Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
+
+Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.
