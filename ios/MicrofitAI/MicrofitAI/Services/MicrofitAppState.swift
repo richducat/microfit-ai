@@ -363,6 +363,9 @@ final class MicrofitAppState {
             successMessage = "Movement reminders scheduled."
         } catch {
             guard revision == reminderRevision else { return }
+            center.removePendingNotificationRequests(withIdentifiers: Array(scheduledReminderIdentifiers))
+            scheduledReminderIdentifiers.removeAll()
+            defaults.removeObject(forKey: reminderIdentifierKey)
             remindersEnabled = false
             errorMessage = "Microfit couldn’t schedule reminders: \(error.localizedDescription)"
         }

@@ -5,6 +5,8 @@ import UserNotifications
 private final class Reminders: MicrofitReminderCenter {
     var pauseAuthorization = false
     var pauseAdd = false
+    var failAddNumber: Int?
+    var addCount = 0
     var authorization: CheckedContinuation<Bool, Never>?
     var addition: CheckedContinuation<Void, Never>?
     var pending = Set<String>()
@@ -13,6 +15,8 @@ private final class Reminders: MicrofitReminderCenter {
         return true
     }
     func add(_ request: UNNotificationRequest) async throws {
+        addCount += 1
+        if addCount == failAddNumber { throw NSError(domain: "RegressionNotifications", code: 1) }
         if pauseAdd {
             pauseAdd = false
             await withCheckedContinuation { addition = $0 }
@@ -100,4 +104,14 @@ final class DeletionTests: XCTestCase {
         XCTAssertNil(store.stringArray(forKey: "microfit.reminderIdentifiers"))
         XCTAssertNil(store.data(forKey: "microfit.snapshot.v2"))
     }
+    func testFailedSchedulingRemovesPartiallyAddedReminders() async {
+        let store = defaults(); let center = Reminders(); center.failAddNumber = 2
+        let state = MicrofitAppState(defaults: store, reminderCenter: center)
+        await state.configureReminders(enabled: true, hours: [9, 12, 17])
+        XCTAssertTrue(center.pending.isEmpty)
+        XCTAssertFalse(state.remindersEnabled)
+        XCTAssertNil(store.stringArray(forKey: "microfit.reminderIdentifiers"))
+        XCTAssertNotNil(state.errorMessage)
+    }
+
 }
