@@ -23,3 +23,6 @@ ios/**/.build/
 output/
 .playwright-cli/
 .playwright-mcp/
+
+# Generated regression-test project
+/ios/DeletionRegression/MicrofitDeletionRegression.xcodeproj/

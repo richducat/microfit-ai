@@ -50,3 +50,8 @@ Version 2.1 implementation in the independent clone at `/Users/richardducat/GITH
 
 - Install and exercise the TestFlight build on a physical device before any later App Review submission.
 - Version 2.1 has not been submitted to App Review; public version 2.0 remains unchanged.
+
+## October 2 deletion-race repair
+Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
+
+Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.

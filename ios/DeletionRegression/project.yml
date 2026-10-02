@@ -1,0 +1,25 @@
+name: MicrofitDeletionRegression
+options:
+  deploymentTarget:
+    macOS: '26.0'
+targets:
+  DeletionRegression:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - ../MicrofitAI/MicrofitAI/Services/MicrofitAppState.swift
+      - ../MicrofitAI/MicrofitAI/Models
+      - Tests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: '6.0'
+        PRODUCT_BUNDLE_IDENTIFIER: com.microfit.deletion-regression
+schemes:
+  DeletionRegression:
+    build:
+      targets:
+        DeletionRegression: all
+    test:
+      targets:
+        - DeletionRegression

@@ -30,3 +30,8 @@
 - Target iPhone and iPad on iOS/iPadOS 18 or later.
 - Do not reuse Lab Studio APIs, commerce, member accounts, copy, contact information, or production assets.
 - Preserve the cloned repository history, but make `ios/MicrofitAI` the only release target.
+
+## October 2 deletion-race repair
+Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
+
+Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.
