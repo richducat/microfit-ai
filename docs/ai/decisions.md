@@ -35,3 +35,8 @@
 Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
 
 Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.
+
+## October 2 release preparation
+Use a fresh build number 2026100201 for the deletion repair; preserve original July build and release artifacts. Keep source and release-script build numbers aligned.
+
+October 2 notification failure follow-up: iPad Pro 13-inch M5/iOS27 extended UI test passed with no XCTest runtime warnings. Screens showed simulator notification scheduling rejection; actual partial scheduling cleanup was missing. A sixth regression reproduced leftover reminder and stored IDs, then passed after cleanup was added. All six regression tests pass. Phone/tablet UI results precede this narrowly scoped error-path patch; successful real notification delivery remains unverified. Signed archive next.

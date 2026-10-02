@@ -55,3 +55,10 @@ Version 2.1 implementation in the independent clone at `/Users/richardducat/GITH
 Plan: invalidate asynchronous coaching/reminder work during local-data deletion, use distinct reminder request IDs to isolate stale cleanup, and retain IDs across process restarts. Source patch applied; simulator build and diff checks pass. Suspended coaching/authorization/add regression tests remain pending; no upload or submission.
 
 Deletion repair verified October2: five deterministic XCTest races pass on macOS26.6.2 with the actual app state/model source and controlled coaching/notification providers. iOS simulator build passes with production defaults. No physical device/model/notification-service or release upload verification yet. Regression runner: ios/DeletionRegression/README.md.
+
+## October 2 release preparation
+Preparing corrected 2.1 build 2026100201. Deletion patch merged; five regression tests passed. Extended iPhone and iPad QA, signed archive, upload and review submission remain.
+
+October 2 iPhone extended QA: one XCUITest passed, zero failures, no runtime warnings; tested onboarding, tabs, workout completion, coaching reply/history relaunch, invalid trainer email and local deletion/relaunch. Root personally inspected three affected screens. Generated QA app uses actual repaired source; this is not physical TestFlight proof. iPad build 2026100201 QA is running. Distribution signing identity exists.
+
+October 2 notification failure follow-up: iPad Pro 13-inch M5/iOS27 extended UI test passed with no XCTest runtime warnings. Screens showed simulator notification scheduling rejection; actual partial scheduling cleanup was missing. A sixth regression reproduced leftover reminder and stored IDs, then passed after cleanup was added. All six regression tests pass. Phone/tablet UI results precede this narrowly scoped error-path patch; successful real notification delivery remains unverified. Signed archive next.

@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 APP_ID="1341965047"
-BUILD_NUMBER="2026071302"
+BUILD_NUMBER="2026100201"
 BUILD_DIR="${MICROFIT_BUILD_DIR:-$ROOT/build}"
 ARCHIVE_PATH="$BUILD_DIR/MicrofitAI.xcarchive"
 IPA_PATH="${MICROFIT_IPA_PATH:-$BUILD_DIR/export/MicrofitAI.ipa}"
