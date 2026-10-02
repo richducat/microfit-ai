@@ -8,11 +8,11 @@ Use this file as the exact reviewer-facing source for the build being submitted.
 - Existing Apple ID: 1341965047
 - Bundle ID: com.microfit.app
 - Version: 2.1
-- Build: 2026071302
+- Build: 2026100201
 
 ## Summary for App Review
 
-microfit.AI 2.1 adds an optional Human Trainers mode to the approved local-first fitness experience. Athletes can read an owner-reviewed public directory and prepare a one-to-one match request. Fitness professionals can prepare a structured application for human review. The app has no account, remote database, ads, analytics, tracking, purchases, or subscriptions; fitness history stays on device.
+microfit.AI 2.1 fixes a local-data deletion race with pending coaching and reminder operations, and adds an optional Human Trainers mode to the approved local-first fitness experience. Athletes can read an owner-reviewed public directory and prepare a one-to-one match request. Fitness professionals can prepare a structured application for human review. The app has no account, remote database, ads, analytics, tracking, purchases, or subscriptions; fitness history stays on device.
 
 ## Login
 
@@ -70,10 +70,10 @@ microfit.AI 2.1 adds an optional Human Trainers mode to the approved local-first
 - The trainer directory is curated by the developer. User applications do not become user-generated content in the app until the owner reviews and deliberately publishes an approved profile.
 - No in-app payment is offered. The request starts a conversation for one-to-one fitness training; it does not book, charge, sell group access, or deliver a digital product.
 - A "credentials reviewed" badge means only that the submitted credential reference was checked before publication. The UI explicitly states that it is not a background check, medical referral, or outcome guarantee.
-- Verified devices:
-  - iPhone 17 Pro on iOS 26.5
-  - iPhone 16 Pro on iOS 18.2
-  - iPad Air 11-inch (M4) on iPadOS 26.5 in portrait and landscape
+- Current corrected-build verification:
+  - Five deterministic tests exercise pending coaching, notification authorization, notification scheduling, newer reminder configuration, and deletion after restart against actual app state source.
+  - iPhone and iPad simulator release QA is recorded in the release evidence before submission.
+  - Physical-device and TestFlight runtime verification is not yet established for this corrected build.
 - Known non-blocking limits:
   - Apple Foundation Models availability varies by compatible hardware, language, region, and Apple Intelligence state. The offline coach is automatic and requires no setup.
 - Anything Apple should not misinterpret:
